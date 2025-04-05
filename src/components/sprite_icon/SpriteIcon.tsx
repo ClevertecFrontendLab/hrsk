@@ -1,9 +1,9 @@
 import { ComponentWithAs, Icon, IconProps } from '@chakra-ui/react';
 
 type SpriteIconProps = IconProps & {
-    spriteId: string;
+    spriteId?: string;
     spritePath?: string;
-    boxSize: string;
+    boxSize?: string;
     viewBox?: string;
 };
 
