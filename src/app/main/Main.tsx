@@ -16,6 +16,7 @@ import {
     VStack,
 } from '@chakra-ui/react';
 
+import { Blogs } from '~/components/blogs/Blogs';
 import { Bookmarks } from '~/components/bookmarks/Bookmarks';
 import { Footer } from '~/components/footer/Footer';
 import { Header } from '~/components/header/Header';
@@ -153,6 +154,7 @@ export const Main = () => (
                     </VStack>
                     <LatestRecipes />
                     <Juiciest />
+                    <Blogs />
                 </Flex>
                 <Bookmarks />
                 <WriteRecipe />
