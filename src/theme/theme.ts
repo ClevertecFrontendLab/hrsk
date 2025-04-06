@@ -22,6 +22,12 @@ const theme = extendTheme({
     background: {
         writeButtonBg: 'radial-gradient(circle at center, #c4ff61 0%, rgba(255, 255, 255, 0) 100%)',
     },
+    breakpoints: {
+        sm: '360px',
+        md: '768px',
+        lg: '1440px',
+        xl: '1920px',
+    },
 });
 
 export { theme };

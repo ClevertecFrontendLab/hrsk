@@ -13,6 +13,7 @@ export const ProfileInfo = () => (
         maxHeight='48px'
         gap='12px'
         paddingLeft='53px'
+        display={{ base: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
     >
         <Avatar src={user_avatar} boxSize='48px' />
         <Box paddingLeft='12px' paddingRight='24px'>

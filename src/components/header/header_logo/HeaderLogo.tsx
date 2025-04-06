@@ -1,16 +1,17 @@
-import { Image } from '@chakra-ui/react';
+import { Box, Image } from '@chakra-ui/react';
 
-import logo from '~/assets/header/logo.svg';
+import logo_text from '~/assets/header/logo_text.svg';
+import pot from '~/assets/header/pot.svg';
 
 export const HeaderLogo = () => (
-    <Image
-        src={logo}
-        alt='pot'
-        width='100%'
-        height='100%'
-        maxWidth='134px'
-        maxHeight='32px'
-        marginY='24px'
-        objectFit='cover'
-    />
+    <Box display='flex' alignItems='center' maxWidth='135px' maxHeight='32px'>
+        <Image boxSize='32px' src={pot} alt='pot' objectFit='cover' />
+        <Image
+            width='96px'
+            src={logo_text}
+            alt='logo text - yee daa'
+            objectFit='cover'
+            display={{ sm: 'none', md: 'flex' }}
+        />
+    </Box>
 );
