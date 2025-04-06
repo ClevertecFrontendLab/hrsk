@@ -23,6 +23,7 @@ import { Header } from '~/components/header/Header';
 import { Juiciest } from '~/components/juiciest/Juiciest';
 import { LatestRecipes } from '~/components/latest_recipes/LatestRecipes';
 import { Navigation } from '~/components/navigation/Navigation';
+import { VeganKitchen } from '~/components/vegan_kitchen/VeganKitchen';
 import { WriteRecipe } from '~/components/write_recipe/WriteRecipe';
 
 export const Main = () => (
@@ -155,6 +156,9 @@ export const Main = () => (
                     <LatestRecipes />
                     <Juiciest />
                     <Blogs />
+                    <VeganKitchen
+                        description={`Интересны не только убеждённым вегетарианцам, но и тем, кто хочет \n попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.`}
+                    />
                 </Flex>
                 <Bookmarks />
                 <WriteRecipe />
