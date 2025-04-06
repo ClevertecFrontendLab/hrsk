@@ -19,6 +19,7 @@ import {
 import { Bookmarks } from '~/components/bookmarks/Bookmarks';
 import { Footer } from '~/components/footer/Footer';
 import { Header } from '~/components/header/Header';
+import { Juiciest } from '~/components/juiciest/Juiciest';
 import { LatestRecipes } from '~/components/latest_recipes/LatestRecipes';
 import { Navigation } from '~/components/navigation/Navigation';
 import { WriteRecipe } from '~/components/write_recipe/WriteRecipe';
@@ -151,6 +152,7 @@ export const Main = () => (
                         </HStack>
                     </VStack>
                     <LatestRecipes />
+                    <Juiciest />
                 </Flex>
                 <Bookmarks />
                 <WriteRecipe />
