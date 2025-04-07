@@ -11,7 +11,7 @@ export const Bookmarks = () => (
         height='100%'
         maxWidth='208px'
         maxHeight='200px'
-        display='flex'
+        display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
         flexDirection='column'
         alignItems='center'
         justifyContent='center'

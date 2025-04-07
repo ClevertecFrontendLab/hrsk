@@ -12,7 +12,7 @@ export const WriteRecipe = () => (
         maxWidth='208px'
         width='100%'
         height='100%'
-        display='flex'
+        display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
         flexDirection='column'
         alignItems='center'
         justifyContent='center'

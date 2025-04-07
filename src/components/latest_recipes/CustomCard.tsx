@@ -1,4 +1,4 @@
-import { CardBody } from '@chakra-ui/icons';
+import { CardBody, CardProps } from '@chakra-ui/icons';
 import { Badge, Box, Card, Heading, HStack, Image, Text } from '@chakra-ui/react';
 
 import { SpriteIcon } from '~/components/sprite_icon/SpriteIcon';
@@ -12,6 +12,8 @@ type PropsType = {
     badgeText?: string;
     bookmarksCount?: number;
     likesCount?: number;
+    display?: CardProps['display'];
+    position?: CardProps['position'];
 };
 
 export const CustomCard = ({
@@ -23,26 +25,46 @@ export const CustomCard = ({
     badgeText,
     bookmarksCount,
     likesCount,
+    display,
+    position,
 }: PropsType) => (
     <Card
-        maxW='100%'
-        maxWidth='322px'
+        position={position}
+        width={{
+            sm: '158px',
+            md: '158px',
+            lg: '277px',
+            xl: '322px',
+        }}
         height='100%'
         borderRadius='8px'
         border='1px'
         borderColor='blackAlpha.200'
-        overflow='hidden'
+        display={display}
+        right={position && '-112px'}
     >
         <Image src={imageSrc} alt='Солянка с грибами' objectFit='cover' />
-        <Box>
-            <CardBody padding='16px 24px 20px 24px'>
-                <Heading fontSize='20px' fontWeight={500} lineHeight={1.4} pb='8px'>
-                    {title}
-                </Heading>
+        <CardBody padding={{ sm: '8px', md: '8px', lg: '12px', xl: '16px 24px 20px 24px' }}>
+            <Heading
+                fontSize={{ sm: '16px', md: '16px', lg: '18px', xl: '20px' }}
+                fontWeight={500}
+                lineHeight={1.4}
+                whiteSpace={{
+                    sm: 'break-spaces',
+                    md: 'break-spaces',
+                    lg: 'no-wrap',
+                    xl: 'no-wrap',
+                }}
+                isTruncated
+                noOfLines={{ sm: 2, md: 2, lg: 1, xl: 1 }}
+            >
+                {title}
+            </Heading>
+            <Box display={{ sm: 'none', md: 'none', lg: 'block', xl: 'block' }}>
                 <Text
                     fontWeight={400}
                     fontSize='14px'
-                    textAlign='justify'
+                    textAlign='left'
                     sx={{
                         overflow: 'hidden',
                         display: '-webkit-box',
@@ -52,28 +74,32 @@ export const CustomCard = ({
                 >
                     {description}
                 </Text>
-                <HStack display='flex' pt='24px' justifyContent='space-between'>
-                    <Badge
-                        display='flex'
-                        bgColor='lime.150'
-                        minWidth='fit-content'
-                        height='24px'
-                        padding='2px 8px'
-                        borderRadius='4px'
-                        alignItems='center'
-                    >
-                        <SpriteIcon
-                            boxSize='16px'
-                            viewBox='16px 16px'
-                            spritePath={spritePath}
-                            spriteId={id}
-                        />
-                        {badgeText}
-                    </Badge>
-                    <Reactions likesCount={likesCount} bookmarksCount={bookmarksCount} />
-                </HStack>
-            </CardBody>
-        </Box>
+            </Box>
+            <HStack
+                display='flex'
+                pt={{ sm: '8px', md: '8px', lg: '24px', xl: '24px' }}
+                justifyContent='space-between'
+            >
+                <Badge
+                    display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
+                    bgColor='lime.150'
+                    minWidth='fit-content'
+                    height='24px'
+                    padding='2px 8px'
+                    borderRadius='4px'
+                    alignItems='center'
+                >
+                    <SpriteIcon
+                        boxSize='16px'
+                        viewBox='16px 16px'
+                        spritePath={spritePath}
+                        spriteId={id}
+                    />
+                    {badgeText}
+                </Badge>
+                <Reactions likesCount={likesCount} bookmarksCount={bookmarksCount} />
+            </HStack>
+        </CardBody>
     </Card>
 );
 
@@ -83,12 +109,12 @@ type ReactionsPropsType = {
 };
 
 export const Reactions = (props: ReactionsPropsType) => {
-    const { bookmarksCount, likesCount } = props;
+    const { bookmarksCount = 0, likesCount = 0 } = props;
 
     return (
         <HStack spacing='8px'>
             <Box display='flex' alignItems='center' gap='6px'>
-                {bookmarksCount && (
+                {bookmarksCount > 0 && (
                     <svg
                         width='12'
                         height='12'
@@ -109,11 +135,11 @@ export const Reactions = (props: ReactionsPropsType) => {
                     </svg>
                 )}
                 <Text lineHeight={1.5} fontWeight={600} fontSize='md' color='lime.600'>
-                    {bookmarksCount}
+                    {bookmarksCount > 0 && bookmarksCount}
                 </Text>
             </Box>
             <Box display='flex' alignItems='center' gap='6px'>
-                {likesCount && (
+                {likesCount > 0 && (
                     <svg
                         width='12'
                         height='12'
@@ -132,7 +158,7 @@ export const Reactions = (props: ReactionsPropsType) => {
                     </svg>
                 )}
                 <Text lineHeight={1.5} fontWeight={600} fontSize='md' color='lime.600'>
-                    {likesCount}
+                    {likesCount > 0 && likesCount}
                 </Text>
             </Box>
         </HStack>

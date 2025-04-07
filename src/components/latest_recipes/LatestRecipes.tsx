@@ -1,25 +1,26 @@
 import { Box, Flex, HStack, Text } from '@chakra-ui/react';
 
-import kotleti from '~/assets/latest_recipes/kotleti.png';
-import oladi from '~/assets/latest_recipes/oladi.png';
-import salat from '~/assets/latest_recipes/salat.png';
-import solyanka from '~/assets/latest_recipes/solyanka.png';
 import { CustomCard } from '~/components/latest_recipes/CustomCard';
+import { LatestRecipesCards } from '~/components/latest_recipes/LatestCards';
 
 export const LatestRecipes = () => (
-    <Flex flexDirection='column' height='100%' width='1360px' maxWidth='100%'>
+    <Flex flexDirection='column' height='100%' width='100%'>
         <Text
-            fontFamily='Inter'
             lineHeight='1'
             fontWeight='500'
-            fontSize='48px'
+            fontSize={{ sm: '24px', lg: '36px', xl: '48px' }}
             color='black'
-            pb='24px'
+            pb={{ sm: '12px', lg: '24px' }}
         >
             Новые рецепты
         </Text>
 
-        <HStack spacing='24px' position='relative'>
+        <HStack
+            spacing={{ sm: '12px', xl: '24px' }}
+            position='relative'
+            width='100%'
+            overflowX='hidden'
+        >
             <Box
                 as='button'
                 bgColor='black.000'
@@ -32,6 +33,8 @@ export const LatestRecipes = () => (
                 zIndex={1}
                 marginBottom='35px'
                 color='white'
+                display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
+                alignItems='center'
             >
                 <svg
                     width='24'
@@ -48,48 +51,22 @@ export const LatestRecipes = () => (
                     />
                 </svg>
             </Box>
-            <CustomCard
-                title='Солянка с грибами'
-                description={
-                    'Как раз после праздников, когда мясные продукты еще остались, но \n' +
-                    'никто их уже не хочет, время варить солянку.'
-                }
-                spritePath='./sprite16px.svg'
-                spriteId='Первые блюда'
-                imageSrc={solyanka}
-                badgeText='Первые блюда'
-                bookmarksCount={1}
-            />
-            <CustomCard
-                title='Капустные котлеты'
-                description={`                       Как раз после праздников, когда мясные продукты еще остались, но никто их
-                        уже не хочет, время варить солянку.`}
-                imageSrc={kotleti}
-                badgeText='Веганские блюда'
-                spritePath='./sprite16px.svg'
-                spriteId='Веганские блюда'
-                bookmarksCount={2}
-                likesCount={1}
-            />
-            <CustomCard
-                title={`Оладьи кефирные 'Пышные'`}
-                description={`Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные
-                        кефирные оладьи на завтрак.`}
-                badgeText='Десерты, выпечка'
-                imageSrc={oladi}
-                spriteId='Десерты'
-                spritePath='./sprite16px.svg'
-                likesCount={1}
-            />
-            <CustomCard
-                title={`Салат 'Здоровье'`}
-                description={`
-                Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.`}
-                spritePath='./sprite16px.svg'
-                spriteId='Баклажан'
-                imageSrc={salat}
-                badgeText='Первые блюда'
-            />
+            {LatestRecipesCards.map((card, index) => (
+                <CustomCard
+                    key={card.id}
+                    title={card.title}
+                    description={card.description}
+                    imageSrc={card.image}
+                    badgeText={card.badge}
+                    bookmarksCount={card.bookmarksCount}
+                    likesCount={card.likesCount}
+                    display={card.display}
+                    spriteId={card.badge}
+                    position={{
+                        md: index === LatestRecipesCards.length - 1 ? 'absolute' : undefined,
+                    }}
+                />
+            ))}
             <Box
                 as='button'
                 bgColor='black.000'
@@ -99,6 +76,8 @@ export const LatestRecipes = () => (
                 height='48px'
                 right='-8px'
                 position='absolute'
+                display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
+                alignItems='center'
                 marginBottom='35px'
                 color='white'
             >

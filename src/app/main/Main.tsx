@@ -28,11 +28,10 @@ import { WriteRecipe } from '~/components/write_recipe/WriteRecipe';
 
 export const Main = () => (
     <Container
-        position='relative'
         width={{ sm: '360px', md: '768px', lg: '1440px', xl: '1920px' }}
-        height={{ sm: '800px', md: '1024px', lg: '1080', xl: '1120px' }}
         maxWidth='100%'
         padding={0}
+        margin={0}
     >
         <Header />
         <Flex as='section' position='relative' maxHeight='1040px'>
@@ -42,9 +41,11 @@ export const Main = () => (
                 paddingX='10px'
                 paddingLeft='10px'
                 paddingRight='16px'
-                maxWidth='256px'
-                width='100%'
+                maxWidth='100%'
+                width={{ lg: '256px', xl: '256px' }}
                 height='100%'
+                display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
+                flexDirection='column'
             >
                 <Navigation />
                 <Footer />
@@ -53,51 +54,49 @@ export const Main = () => (
                 orientation='vertical'
                 height='100vh'
                 borderWidth='1px'
-                borderColor='gray.300'
+                borderColor='blackAlpha.400'
             />
+
             <Flex
                 flexDirection='column'
                 alignItems='center'
-                width='100%'
-                height='100%'
-                maxWidth='1360px'
-                maxHeight='2054px'
-                marginLeft='24px'
+                px={{ sm: '16px', md: '20px', lg: '24px', xl: '24px' }}
+                width={{ sm: '360px', md: '768px', lg: '880px', xl: '1360px' }}
             >
-                <Heading
-                    my='32px'
-                    fontSize='5xl'
-                    textShadow='0 4px 4px rgba(0, 0, 0, 0.25)'
-                    fontWeight={700}
-                    lineHeight='1'
-                    color='black'
-                    alignSelf='stretch'
-                    textAlign='center'
-                    marginBottom='32px'
-                >
-                    Приятного аппетита!
-                </Heading>
                 <VStack
+                    mb={{ sm: '32px', lg: '24px' }}
                     display='flex'
                     flexDirection='column'
                     alignItems='center'
                     maxWidth='898px'
                     maxHeight='248px'
                 >
-                    <HStack spacing='12px'>
+                    <Heading
+                        py={{ sm: '16px', lg: '32px' }}
+                        fontSize={{ sm: '24px', lg: '48px' }}
+                        textShadow={{ lg: '0 4px 4px rgba(0, 0, 0, 0.25)' }}
+                        fontWeight={700}
+                        lineHeight='1'
+                        color='black'
+                        alignSelf='stretch'
+                        textAlign='center'
+                    >
+                        Приятного аппетита!
+                    </Heading>
+                    <HStack spacing='12px' width={{ sm: '328px', md: '448px', lg: '518px' }}>
                         <Box as='button'>
                             <IconButton
                                 bg='none'
                                 aria-label='Search database'
                                 border='1px solid rgba(0, 0, 0, 0.48)'
                                 borderRadius='6px'
-                                padding='0 12px'
-                                width='48px'
-                                height='48px'
+                                width={{ sm: '32px', lg: '48px' }}
+                                height={{ sm: '32px', lg: '48px' }}
+                                padding={{ sm: '0 9px', lg: '0 12px' }}
                             >
                                 <svg
-                                    width='24'
-                                    height='24'
+                                    width='24px'
+                                    height='24px'
                                     viewBox='0 0 24 24'
                                     fill='none'
                                     xmlns='http://www.w3.org/2000/svg'
@@ -109,17 +108,22 @@ export const Main = () => (
                                 </svg>
                             </IconButton>
                         </Box>
-                        <InputGroup size='lg' width='458px' maxWidth='100%'>
+                        <InputGroup>
                             <Input
                                 placeholder='Название или ингредиент...'
-                                size='lg'
                                 border='1px solid rgba(0, 0, 0, 0.48)'
                                 borderRadius='6px'
                                 padding='0px 48px 0px 16px'
-                                width='458px'
-                                height='48px'
+                                fontSize={{ sm: '14px', lg: '18px' }}
+                                fontWeight={400}
+                                display='flex'
+                                alignItems='center'
+                                height={{ sm: '32px', lg: '48px' }}
                             />
-                            <InputRightElement>
+                            <InputRightElement
+                                width={{ sm: '32px', lg: '48px' }}
+                                height={{ sm: '32px', lg: '48px' }}
+                            >
                                 <IconButton
                                     aria-label='Search database'
                                     bg='none'
@@ -129,7 +133,12 @@ export const Main = () => (
                         </InputGroup>
                     </HStack>
 
-                    <HStack width='100%' spacing='16px'>
+                    <HStack
+                        width='100%'
+                        spacing='16px'
+                        display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
+                        flexDirection='row'
+                    >
                         <FormControl
                             maxWidth='268px'
                             maxHeight='36px'

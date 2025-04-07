@@ -22,8 +22,8 @@ export const MultipleAccordion = ({ item }: Props) => {
             defaultIndex={[1]}
             allowMultiple
             alignContent='center'
-            width='100%'
-            maxWidth='230px'
+            width={{ lg: '256px', xl: '256px' }}
+            maxWidth='100%'
         >
             <AccordionItem border='none' width='100%'>
                 <AccordionButton
