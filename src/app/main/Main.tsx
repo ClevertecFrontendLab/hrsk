@@ -19,6 +19,7 @@ import {
 import { Blogs } from '~/components/blogs/Blogs';
 import { Bookmarks } from '~/components/bookmarks/Bookmarks';
 import { Footer } from '~/components/footer/Footer';
+import { MainFooter } from '~/components/footer/MainFooter';
 import { Header } from '~/components/header/Header';
 import { Juiciest } from '~/components/juiciest/Juiciest';
 import { LatestRecipes } from '~/components/latest_recipes/LatestRecipes';
@@ -58,11 +59,11 @@ export const Main = () => (
                 borderWidth='1px'
                 borderColor='blackAlpha.400'
             />
-            <Box height='1040px'>
+            <Box height='1040px' paddingBottom='48px'>
                 <Flex
                     flexDirection='column'
                     alignItems={{ sm: 'flex-start', md: 'center' }}
-                    mx={{ sm: '16px', md: '20px', lg: '24px', xl: '24px' }}
+                    px={{ sm: '16px', md: '20px', lg: '24px', xl: '24px' }}
                     width={{ sm: '360px', md: '768px', lg: '880px', xl: '1360px' }}
                     height='100%'
                     overflowY='scroll'
@@ -177,6 +178,7 @@ export const Main = () => (
                     <VeganKitchen
                         description={`Интересны не только убеждённым вегетарианцам, но и тем, кто хочет \n попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.`}
                     />
+                    <MainFooter />
                 </Flex>
             </Box>
             <Bookmarks />
