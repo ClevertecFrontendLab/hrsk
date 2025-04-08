@@ -5,7 +5,6 @@ import { SpriteIcon } from '~/components/sprite_icon/SpriteIcon';
 export const Bookmarks = () => (
     <VStack
         position='absolute'
-        top={0}
         right={0}
         width='100%'
         height='100%'

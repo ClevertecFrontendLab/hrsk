@@ -32,15 +32,10 @@ export const Main = () => (
         maxWidth='100%'
         padding={0}
         margin={0}
+        position='relative'
     >
         <Header />
-        <Flex
-            as='section'
-            position='relative'
-            maxWidth={{ xl: '1360px' }}
-            width='100%'
-            maxHeight='1040px'
-        >
+        <Flex as='section' maxWidth={{ xl: '1360px' }} width='100%' maxHeight='1040px'>
             <Box
                 marginTop='24px'
                 marginBottom='228px'
