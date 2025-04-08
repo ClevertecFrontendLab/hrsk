@@ -34,7 +34,13 @@ export const Main = () => (
         margin={0}
     >
         <Header />
-        <Flex as='section' position='relative' maxHeight='1040px'>
+        <Flex
+            as='section'
+            position='relative'
+            maxWidth={{ xl: '1360px' }}
+            width='100%'
+            maxHeight='1040px'
+        >
             <Box
                 marginTop='24px'
                 marginBottom='228px'
@@ -60,8 +66,9 @@ export const Main = () => (
             <Flex
                 flexDirection='column'
                 alignItems='center'
-                px={{ sm: '16px', md: '20px', lg: '24px', xl: '24px' }}
+                mx={{ sm: '16px', md: '20px', lg: '24px', xl: '24px' }}
                 width={{ sm: '360px', md: '768px', lg: '880px', xl: '1360px' }}
+                height='100%'
             >
                 <VStack
                     mb={{ sm: '32px', lg: '24px' }}
@@ -171,6 +178,5 @@ export const Main = () => (
             <Bookmarks />
             <WriteRecipe />
         </Flex>
-        {/*</Flex>*/}
     </Container>
 );
