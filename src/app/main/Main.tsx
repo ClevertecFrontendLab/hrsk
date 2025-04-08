@@ -65,7 +65,7 @@ export const Main = () => (
 
             <Flex
                 flexDirection='column'
-                alignItems='center'
+                alignItems={{ sm: 'flex-start', md: 'center' }}
                 mx={{ sm: '16px', md: '20px', lg: '24px', xl: '24px' }}
                 width={{ sm: '360px', md: '768px', lg: '880px', xl: '1360px' }}
                 height='100%'

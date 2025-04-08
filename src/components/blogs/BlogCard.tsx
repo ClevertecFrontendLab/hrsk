@@ -12,8 +12,7 @@ export const BlogCard = (props: BlogCardProps) => {
 
     return (
         <Card
-            maxW='100%'
-            maxWidth='426px'
+            width={{ sm: '304px', md: '226px', lg: '266px', xl: '426px' }}
             height='100%'
             borderRadius='8px'
             border='1px'
@@ -21,27 +20,33 @@ export const BlogCard = (props: BlogCardProps) => {
             overflow='hidden'
             display='flex'
             flexDirection='column'
+            padding={{ md: 0 }}
         >
             <CardHeader
                 position='relative'
-                maxWidth='346px'
+                maxWidth='100%'
                 display='flex'
                 flexDirection='row'
                 alignItems='center'
-                padding='16px 24px 16px 24px'
+                padding={{ sm: '16px 16px 8px 16px', xl: '16px 24px 16px 24px' }}
             >
-                <Avatar src={avatarSrc} boxSize='48px' />
-                <Box paddingLeft='12px' paddingRight='24px'>
-                    <Text fontSize='md' color='black.000'>
+                <Avatar src={avatarSrc} boxSize={{ sm: '32px', md: '48px' }} />
+                <Box paddingLeft='12px'>
+                    <Text
+                        fontSize={{ md: '16px', lg: '18px' }}
+                        color='black.000'
+                        maxHeight='100%'
+                        noOfLines={{ sm: 1, md: 1, lg: 1, xl: 1 }}
+                    >
                         {name}
                     </Text>
-                    <Text fontSize='sm' color='gray.500'>
+                    <Text fontSize={{ sm: '12px' }} color='gray.500'>
                         {userName}
                     </Text>
                 </Box>
             </CardHeader>
-            <CardBody padding='12px 24px 20px 24px'>
-                <Text fontWeight={400} fontSize='14px' textAlign='justify' noOfLines={3}>
+            <CardBody padding={{ sm: '8px 16px 16px 16px', xl: '12px 24px 20px 24px' }}>
+                <Text fontWeight={400} fontSize={{ sm: '14px' }} textAlign='left' noOfLines={3}>
                     {postText}
                 </Text>
             </CardBody>
