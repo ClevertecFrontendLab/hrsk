@@ -14,8 +14,7 @@ export const CardWithoutDescription = (props: Props) => {
 
     return (
         <Card
-            width='668px'
-            maxHeight='56px'
+            width='100%'
             height='100%'
             borderRadius='8px'
             border='1px'
@@ -25,23 +24,38 @@ export const CardWithoutDescription = (props: Props) => {
             flexDirection='row'
             alignItems='center'
         >
-            <CardBody padding='14px 24px 14px 24px' width='100%' position='relative'>
-                <HStack display='flex' flexDirection='row' alignItems='center' gap='12px'>
+            <CardBody padding={{ sm: '14px', md: '12px', xl: '14px 24px 14px 24px' }} width='100%'>
+                <HStack
+                    display='flex'
+                    flexDirection='row'
+                    alignItems='center'
+                    gap={{ sm: '8px', xl: '12px' }}
+                    position='relative'
+                >
                     <SpriteIcon
                         boxSize='24px'
                         viewBox='24px 24px'
                         spritePath={spritePath}
                         spriteId={spriteId}
                     />
-                    <Heading fontSize='20px' fontWeight={500} lineHeight={1.4}>
+                    <Heading
+                        fontSize={{ lg: '18px', xl: '20px' }}
+                        fontWeight={500}
+                        lineHeight={1.5}
+                        isTruncated
+                    >
                         {title}
                     </Heading>
                     <Button
                         borderWidth='1px'
                         borderColor='lime.600'
+                        fontSize={{ sm: '12px' }}
                         color='lime.600'
                         position='absolute'
-                        right='14px'
+                        padding={{ sm: '0 8px' }}
+                        right='0'
+                        width={{ sm: '70px', xl: '87px' }}
+                        height={{ sm: '32px' }}
                     >
                         Готовить
                     </Button>

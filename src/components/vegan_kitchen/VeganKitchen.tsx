@@ -1,4 +1,4 @@
-import { Flex, HStack, Stack, Text, VStack } from '@chakra-ui/react';
+import { Flex, Stack, Text, VStack } from '@chakra-ui/react';
 
 import { CardWithoutDescription } from '~/components/vegan_kitchen/CardWithoutDescrpition';
 import { VeganCard } from '~/components/vegan_kitchen/VeganCard';
@@ -18,25 +18,41 @@ export const VeganKitchen = (props: VeganKitchenProps) => {
             spacing='24px'
             borderColor='blackAlpha.200'
             borderTopWidth='1px'
-            width='1360px'
+            width={{ sm: '328px', md: '768px', lg: '880px', xl: '1360px' }}
             maxWidth='100%'
         >
-            <Flex width='100%' justifyContent='space-between' alignItems='center' paddingTop='24px'>
+            <Flex
+                width='100%'
+                display={{ sm: 'column', lg: 'flex' }}
+                alignItems={{ sm: 'flex-start', lg: 'center' }}
+                justifyContent={{ xl: 'space-between' }}
+                paddingTop='24px'
+            >
                 <Text
-                    fontFamily='Inter'
                     lineHeight='1'
                     fontWeight='500'
-                    fontSize='48px'
+                    fontSize={{ sm: '24px', lg: '36px', xl: '48px' }}
                     color='black'
-                    textAlign='center'
+                    textAlign='left'
+                    paddingBottom={{ sm: '12px' }}
                 >
                     Веганская кухня
                 </Text>
-                <Text maxWidth='668px' whiteSpace='pre-line'>
+                <Text
+                    fontSize={{ lg: '16px' }}
+                    lineHeight={1.5}
+                    whiteSpace={{ lg: 'pre-line', sm: 'break-spaces' }}
+                >
                     {description}
                 </Text>
             </Flex>
-            <HStack display='flex' flexDirection='row' spacing='24px'>
+            <Stack
+                display='flex'
+                flexDirection={{ sm: 'column', md: 'row' }}
+                spacing={{ md: 3, lg: 4, xl: 6 }}
+                width='100%'
+                gap={{ sm: '12px' }}
+            >
                 <VeganCard
                     spriteId='Вторые блюда'
                     badgeColor='lime.50'
@@ -63,7 +79,7 @@ export const VeganKitchen = (props: VeganKitchenProps) => {
                         'Мягкий вкус и лёгкая пряная нотка наверняка помогут сделать эти чудесные котлеты из капусты одним из ваших любимых овощных  блюд.'
                     }
                 />
-                <VStack maxWidth='668px'>
+                <VStack maxWidth={{ md: '240px', lg: '282px', xl: '668px' }} width='100%'>
                     <CardWithoutDescription
                         title='Стейк для вегетарианцев'
                         spriteId='Вторые блюда'
@@ -77,7 +93,7 @@ export const VeganKitchen = (props: VeganKitchenProps) => {
                         spriteId='Первые блюда'
                     />
                 </VStack>
-            </HStack>
+            </Stack>
         </Stack>
     );
 };
