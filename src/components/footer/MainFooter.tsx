@@ -6,7 +6,7 @@ import user_avatar from '~/assets/header/Avatar.svg';
 export const MainFooter = () => (
     <HStack
         display={{ sm: 'flex', lg: 'none' }}
-        width={{ sm: '100%', md: '768px' }}
+        width={{ sm: '360px', md: '768px' }}
         alignItems='center'
         bgColor='lime.50'
         height='100%'

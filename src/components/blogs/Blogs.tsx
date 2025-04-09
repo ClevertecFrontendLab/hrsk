@@ -8,8 +8,8 @@ import { BlogCard } from '~/components/blogs/BlogCard';
 
 export const Blogs = () => (
     <Flex
-        width='100%'
-        maxWidth={{ sm: '328px', md: '728px', lg: '880px', xl: '1360px' }}
+        maxWidth='100%'
+        width={{ sm: '328px', md: '728px', lg: '880px', xl: '1360px' }}
         height={{ sm: '600px', md: '272px', lg: '264px', xl: '304px' }}
         mt='40px'
         flexDirection='column'

@@ -11,20 +11,20 @@ export const VeganKitchen = (props: VeganKitchenProps) => {
     const { description } = props;
 
     return (
-        <Stack
+        <Flex
             marginTop='40px'
-            justify='flex-start'
-            align='flex-start'
-            spacing='24px'
+            direction='column'
+            alignItems='center'
+            gap='24px'
             borderColor='blackAlpha.200'
             borderTopWidth='1px'
-            width={{ sm: '328px', md: '768px', lg: '880px', xl: '1360px' }}
+            width={{ sm: '328px', md: '728px', lg: '880px', xl: '1360px' }}
             maxWidth='100%'
         >
             <Flex
                 width='100%'
                 display={{ sm: 'column', lg: 'flex' }}
-                alignItems={{ sm: 'flex-start', lg: 'center' }}
+                alignItems='center'
                 justifyContent={{ xl: 'space-between' }}
                 paddingTop='24px'
             >
@@ -38,11 +38,7 @@ export const VeganKitchen = (props: VeganKitchenProps) => {
                 >
                     Веганская кухня
                 </Text>
-                <Text
-                    fontSize={{ lg: '16px' }}
-                    lineHeight={1.5}
-                    whiteSpace={{ lg: 'pre-line', sm: 'break-spaces' }}
-                >
+                <Text fontSize={{ lg: '16px' }} lineHeight={1.5} whiteSpace={{ sm: 'pre-line' }}>
                     {description}
                 </Text>
             </Flex>
@@ -94,6 +90,6 @@ export const VeganKitchen = (props: VeganKitchenProps) => {
                     />
                 </VStack>
             </Stack>
-        </Stack>
+        </Flex>
     );
 };

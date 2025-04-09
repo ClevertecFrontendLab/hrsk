@@ -5,8 +5,8 @@ import { Reactions } from '~/components/juiciest/Reactions';
 import { SpriteIcon } from '~/components/sprite_icon/SpriteIcon';
 
 type PropsType = {
-    title: string;
-    description: string;
+    title?: string;
+    description?: string;
     spritePath?: string;
     spriteId?: string;
     imageSrc?: string;
