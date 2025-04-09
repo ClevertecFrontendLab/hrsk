@@ -6,6 +6,7 @@ import {
     Box,
 } from '@chakra-ui/icons';
 import { Accordion, Button, List, ListItem } from '@chakra-ui/react';
+import { Link } from 'react-router';
 
 import { AccordionItemType } from '~/components/navigation/accordion/AccordionItems';
 import { SpriteIcon } from '~/components/sprite_icon/SpriteIcon';
@@ -28,6 +29,8 @@ export const MultipleAccordion = ({ item }: Props) => {
             <AccordionItem border='none' width='100%'>
                 <AccordionButton
                     data-test-id={sectionTitle === 'Веганская кухня' ? 'vegan-cuisine' : ''}
+                    as={Link}
+                    to={sectionTitle === 'Веганская кухня' ? '/vegan-cuisine' : ''}
                     padding={0}
                     width='100%'
                     height='48px'

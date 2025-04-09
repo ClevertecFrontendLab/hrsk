@@ -4,7 +4,7 @@ import { CardWithoutDescription } from '~/components/vegan_kitchen/CardWithoutDe
 import { VeganCard } from '~/components/vegan_kitchen/VeganCard';
 
 type VeganKitchenProps = {
-    description: string;
+    description?: string;
 };
 
 export const VeganKitchen = (props: VeganKitchenProps) => {

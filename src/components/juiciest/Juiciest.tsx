@@ -1,5 +1,6 @@
 import { SimpleGrid } from '@chakra-ui/icons';
 import { Box, Flex, Text } from '@chakra-ui/react';
+import { Link } from 'react-router';
 
 import alex from '~/assets/avatars/alex.png';
 import elena from '~/assets/avatars/elena.png';
@@ -29,7 +30,8 @@ export const Juiciest = () => (
             </Text>
             <Box
                 backgroundColor='lime.400'
-                as='button'
+                as={Link}
+                to='/juiciest'
                 borderRadius='6px'
                 padding={{ lg: '0px 24px' }}
                 width={{ lg: '197px' }}
@@ -60,7 +62,8 @@ export const Juiciest = () => (
             </Box>
             <Box
                 backgroundColor='lime.400'
-                as='button'
+                as={Link}
+                to='/juiciest'
                 borderRadius='6px'
                 padding={{ sm: '0 16px' }}
                 width={{ sm: '167px' }}
