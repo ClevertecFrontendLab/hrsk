@@ -21,7 +21,7 @@ import { LatestRecipes } from '~/components/latest_recipes/LatestRecipes';
 import { VeganKitchen } from '~/components/vegan_kitchen/VeganKitchen';
 
 export const Content = () => (
-    <Box height='100%' paddingBottom='100px'>
+    <Box height={{ lg: '100%' }} paddingBottom='100px'>
         <Flex
             flexDirection='column'
             alignItems={{ sm: 'center', md: 'center' }}
