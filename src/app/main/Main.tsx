@@ -59,7 +59,7 @@ export const Main = () => (
                 borderWidth='1px'
                 borderColor='blackAlpha.400'
             />
-            <Box height='1040px' paddingBottom='48px'>
+            <Box height='100%' paddingBottom='100px'>
                 <Flex
                     flexDirection='column'
                     alignItems={{ sm: 'flex-start', md: 'center' }}

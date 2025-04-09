@@ -11,7 +11,7 @@ export const MainFooter = () => (
         bgColor='lime.50'
         height='100%'
         maxHeight='84px'
-        mt={{ md: '16px' }}
+        // mt={{ md: '16px' }}
         position='fixed'
         bottom='0'
     >
