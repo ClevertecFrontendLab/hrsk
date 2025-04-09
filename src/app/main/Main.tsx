@@ -62,7 +62,7 @@ export const Main = () => (
             <Box height='100%' paddingBottom='100px'>
                 <Flex
                     flexDirection='column'
-                    alignItems={{ sm: 'flex-start', md: 'center' }}
+                    alignItems={{ sm: 'center', md: 'center' }}
                     px={{ sm: '16px', md: '20px', lg: '24px', xl: '24px' }}
                     width={{ sm: '360px', md: '768px', lg: '880px', xl: '1360px' }}
                     height='100%'
