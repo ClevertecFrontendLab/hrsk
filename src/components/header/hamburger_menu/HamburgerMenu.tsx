@@ -13,7 +13,7 @@ import {
 import { Link, useLocation } from 'react-router';
 
 import { Footer } from '~/components/footer/Footer';
-import { breadcrumbsObj } from '~/components/header/breadcrumbs/Breadcrumbs';
+import { breadcrumbsObj } from '~/components/header/breadcrumbs/BreadcrumbsObj';
 import { Navigation } from '~/components/navigation/Navigation';
 
 type Props = {

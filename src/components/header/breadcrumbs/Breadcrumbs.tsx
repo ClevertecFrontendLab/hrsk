@@ -2,12 +2,7 @@ import { Breadcrumb, ChevronRightIcon } from '@chakra-ui/icons';
 import { BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router';
 
-export const breadcrumbsObj: Record<string, string> = {
-    '/': 'Главная',
-    juiciest: 'Самое сочное',
-    'vegan-cuisine': 'Веганская кухня',
-    '/vegan-cuisine/main-courses': 'Вторые блюда',
-};
+import { breadcrumbsObj } from '~/components/header/breadcrumbs/BreadcrumbsObj';
 
 export const Breadcrumbs = () => {
     const location = useLocation();
