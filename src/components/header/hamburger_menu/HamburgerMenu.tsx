@@ -28,6 +28,7 @@ export const HamburgerMenu = ({ onClose, isOpen }: Props) => {
         <Flex
             direction='column'
             height='644px'
+            width={{ sm: '344px' }}
             overflowY='scroll'
             alignItems='center'
             sx={{
@@ -41,7 +42,7 @@ export const HamburgerMenu = ({ onClose, isOpen }: Props) => {
                 <DrawerOverlay />
                 <DrawerContent>
                     <DrawerBody>
-                        <VStack align='start' spacing={4}>
+                        <VStack align='start' spacing={4} width='100%'>
                             <Breadcrumb
                                 display={{ sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }}
                                 spacing='8px'
@@ -80,7 +81,7 @@ export const HamburgerMenu = ({ onClose, isOpen }: Props) => {
                 </DrawerContent>
             </Drawer>
 
-            <Box display={{ base: 'none', lg: 'block' }}>
+            <Box display={{ sm: 'none', lg: 'block' }}>
                 <Navigation />
             </Box>
 
