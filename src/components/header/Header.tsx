@@ -15,10 +15,11 @@ export const Header = ({ onOpen }: Props) => (
         as='header'
         data-test-id='header'
         position='sticky'
-        zIndex='sticky'
+        zIndex={1000}
         top={0}
         backgroundColor='lime.500'
         width='100%'
+        height='80px'
         pl={{
             sm: 4,
             md: 5,

@@ -14,7 +14,7 @@ export const Main = () => {
         <Container
             width={{ sm: '360px', md: '768px', lg: '1440px', xl: '1920px' }}
             maxWidth='100%'
-            height='1040px'
+            height='100vh'
             padding={0}
             margin={0}
             position='relative'
@@ -25,6 +25,7 @@ export const Main = () => {
                 maxWidth='100%'
                 width={{ sm: '360px', md: '768px', lg: '880px', xl: '1360px' }}
                 paddingBottom='100px'
+                paddingTop='80px'
             >
                 <Box
                     marginTop='24px'
@@ -42,9 +43,11 @@ export const Main = () => {
                     height='1040px'
                     borderWidth='1px'
                     borderColor='blackAlpha.400'
+                    display={{ sm: 'none', lg: 'flex' }}
                 />
                 <Box
                     display='flex'
+                    height='1040px'
                     flexDirection='column'
                     alignItems='center'
                     px={{ sm: 0, md: 0, lg: '24px', xl: '24px' }}
