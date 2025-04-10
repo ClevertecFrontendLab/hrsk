@@ -8,6 +8,7 @@ const theme = extendTheme({
         'lime.400': '#b1ff2e',
         'lime.500': '#FFFFD3',
         'lime.600': '#2db100',
+        'lime.800': '#134d00',
         'black.000': '#000',
         'blackAlpha.200': 'rgba(0, 0, 0, 0.08)',
         'blackAlpha.700': 'rgba(0, 0, 0, 0.64)',
