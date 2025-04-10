@@ -9,5 +9,6 @@ export const AppRoutes = () => (
         <Route path='/' element={<Content />} />
         <Route path='/juiciest' element={<JuiciestPage />} />
         <Route path='/vegan-cuisine' element={<VeganPage />} />
+        <Route path='/vegan-cuisine/main-course' element={<VeganPage />} />
     </Routes>
 );

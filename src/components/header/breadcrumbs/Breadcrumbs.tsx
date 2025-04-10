@@ -2,10 +2,11 @@ import { Breadcrumb, ChevronRightIcon } from '@chakra-ui/icons';
 import { BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router';
 
-const breadcrumbsObj: Record<string, string> = {
-    '': 'Главная',
+export const breadcrumbsObj: Record<string, string> = {
+    '/': 'Главная',
     juiciest: 'Самое сочное',
     'vegan-cuisine': 'Веганская кухня',
+    '/vegan-cuisine/main-courses': 'Вторые блюда',
 };
 
 export const Breadcrumbs = () => {
@@ -26,11 +27,14 @@ export const Breadcrumbs = () => {
                 </BreadcrumbLink>
             </BreadcrumbItem>
             {paths.map((path, index) => {
+                const lastKey = Object.keys(breadcrumbsObj).pop();
                 const to = '/' + paths.slice(0, index + 1).join('/');
+                console.log(to);
                 return (
-                    <BreadcrumbItem>
+                    <BreadcrumbItem isCurrentPage>
                         <BreadcrumbLink as={Link} to={to} fontSize='14px' fontWeight={400}>
-                            {breadcrumbsObj[path] || path}
+                            {/*{path.charAt(0) + path.slice(1)}*/}
+                            {breadcrumbsObj[path] || breadcrumbsObj[lastKey!]}
                         </BreadcrumbLink>
                     </BreadcrumbItem>
                 );

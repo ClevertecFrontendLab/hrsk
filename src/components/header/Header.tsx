@@ -1,11 +1,16 @@
-import { Box, Flex, HStack, IconButton, Text } from '@chakra-ui/react';
+import { Box, Flex, HStack, Text } from '@chakra-ui/react';
 
 import { Breadcrumbs } from '~/components/header/breadcrumbs/Breadcrumbs';
+import { HamburgerButton } from '~/components/header/hamburger_menu/HamburgerButton';
 import { HeaderLogo } from '~/components/header/header_logo/HeaderLogo';
 import { ProfileInfo } from '~/components/header/profile_info/ProfileInfo';
 import { SpriteIcon } from '~/components/sprite_icon/SpriteIcon';
 
-export const Header = () => (
+type Props = {
+    onOpen: () => void;
+};
+
+export const Header = ({ onOpen }: Props) => (
     <Flex
         as='header'
         data-test-id='header'
@@ -112,29 +117,6 @@ export const Header = () => (
                 </Text>
             </Box>
         </HStack>
-        <IconButton
-            as='button'
-            border='none'
-            aria-label='Open menu'
-            onClick={() => {}}
-            position='absolute'
-            width='48px'
-            height='48px'
-            right='20px'
-            bg='none'
-            _hover='none'
-            display={{ sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }}
-        >
-            <svg
-                width='24'
-                height='24'
-                viewBox='0 0 24 24'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-            >
-                <path d='M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z' fill='black' />
-            </svg>
-        </IconButton>
-        {/*</Flex>*/}
+        <HamburgerButton onOpen={onOpen} />
     </Flex>
 );

@@ -3,6 +3,7 @@ import { extendTheme } from '@chakra-ui/react';
 const theme = extendTheme({
     colors: {
         'lime.50': '#ffffd3',
+        'lime.100': '#eaffc7',
         'lime.150': '#d7ff94',
         'lime.300': '#c4ff61',
         'lime.400': '#b1ff2e',
