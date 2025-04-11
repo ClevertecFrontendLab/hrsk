@@ -3,6 +3,7 @@ import { nanoid } from '@reduxjs/toolkit';
 export type ItemType = {
     id: string;
     title: string;
+    path?: string;
 };
 
 export const menuItems: Record<string, ItemType[]> = {
@@ -65,14 +66,14 @@ export const menuItems: Record<string, ItemType[]> = {
         { id: nanoid(), title: 'Овощи' },
     ],
     ['Веганская кухня']: [
-        { id: nanoid(), title: 'Закуски' },
-        { id: nanoid(), title: 'Первые блюда' },
-        { id: nanoid(), title: 'Вторые блюда' },
-        { id: nanoid(), title: 'Гарниры' },
-        { id: nanoid(), title: 'Десерты' },
-        { id: nanoid(), title: 'Выпечка' },
-        { id: nanoid(), title: 'Сыроедческие блюда' },
-        { id: nanoid(), title: 'Напитки' },
+        { id: nanoid(), title: 'Закуски', path: 'snacks' },
+        { id: nanoid(), title: 'Первые блюда', path: 'courses' },
+        { id: nanoid(), title: 'Вторые блюда', path: 'main-courses' },
+        { id: nanoid(), title: 'Гарниры', path: 'said-dishes' },
+        { id: nanoid(), title: 'Десерты', path: 'deserts' },
+        { id: nanoid(), title: 'Выпечка', path: 'bakery' },
+        { id: nanoid(), title: 'Сыроедческие блюда', path: 'raw-food' },
+        { id: nanoid(), title: 'Напитки', path: 'drinks' },
     ],
     ['Детские блюда']: [
         { id: nanoid(), title: 'Первые блюда' },

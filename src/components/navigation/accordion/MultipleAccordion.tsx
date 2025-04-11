@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/icons';
 import { Accordion, List, ListItem } from '@chakra-ui/react';
 import { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useSearchParams } from 'react-router';
 
 import { ItemType } from '~/components/header/hamburger_menu/MenuItems';
 import { SpriteIcon } from '~/components/sprite_icon/SpriteIcon';
@@ -15,11 +15,22 @@ import { SpriteIcon } from '~/components/sprite_icon/SpriteIcon';
 type Props = {
     category: string;
     items: ItemType[];
+    isActive: string | undefined;
+    setActive: (isActive: string | undefined) => void;
 };
 
-export const MultipleAccordion = ({ category, items }: Props) => {
+export const MultipleAccordion = (props: Props) => {
     const [activeIndex, setActiveIndex] = useState<number | number[]>([]);
-    const [activeSub, setActiveSub] = useState<string | null>(null);
+
+    const { category, items, isActive, setActive } = props;
+
+    const [, setSearchParams] = useSearchParams();
+
+    const handleAccordionChange = (index: number | number[]) => {
+        const selected = Array.isArray(index) ? index[0] : index;
+        setActiveIndex(selected);
+        setActive('snacks');
+    };
 
     return (
         <Accordion
@@ -31,7 +42,7 @@ export const MultipleAccordion = ({ category, items }: Props) => {
             paddingLeft={{ sm: '10px' }}
             paddingRight={{ sm: '16px' }}
             index={activeIndex}
-            onChange={setActiveIndex}
+            onChange={handleAccordionChange}
         >
             <AccordionItem border='none' width={{ lg: '230px' }}>
                 <AccordionButton
@@ -42,7 +53,7 @@ export const MultipleAccordion = ({ category, items }: Props) => {
                     alignItems='center'
                     data-test-id={category === 'Веганская кухня' ? 'vegan-cuisine' : ''}
                     as={Link}
-                    to={category === 'Веганская кухня' ? '/vegan-cuisine' : ''}
+                    to={category === 'Веганская кухня' ? `/vegan-cuisine` : ''}
                     padding={0}
                     width='100%'
                     height='48px'
@@ -68,22 +79,27 @@ export const MultipleAccordion = ({ category, items }: Props) => {
                 </AccordionButton>
                 <AccordionPanel>
                     <List>
-                        {items?.map((item, subIndex) => {
-                            const isActive = item.title === activeSub;
+                        {items?.map((item, index) => {
+                            const isActiveItem = item.path === isActive;
                             return (
                                 <ListItem key={item.id} width='100%'>
                                     <Box
                                         as='button'
                                         py={1}
                                         px='16px'
-                                        key={subIndex}
+                                        key={index}
                                         cursor='pointer'
-                                        onClick={() => setActiveSub(item.title)}
-                                        fontWeight={isActive ? 700 : 500}
-                                        borderLeft={isActive ? '8px' : '1px'}
+                                        onClick={() => {
+                                            setActive(item.path);
+                                            if (item.path) {
+                                                setSearchParams({ tab: item.path });
+                                            }
+                                        }}
+                                        fontWeight={isActiveItem ? 700 : 500}
+                                        borderLeft={isActiveItem ? '8px' : '1px'}
                                         borderColor='lime.300'
                                     >
-                                        <Link to='vegan-cuisine/main-course'>{item.title}</Link>
+                                        <Link to={`vegan-cuisine/${item.path}`}>{item.title}</Link>
                                     </Box>
                                 </ListItem>
                             );

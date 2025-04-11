@@ -1,4 +1,5 @@
 import { Box, Container, Divider, Flex, useDisclosure } from '@chakra-ui/react';
+import { useState } from 'react';
 
 import { AppRoutes } from '~/app/AppRoutes';
 import { Bookmarks } from '~/components/bookmarks/Bookmarks';
@@ -10,11 +11,14 @@ import { WriteRecipe } from '~/components/write_recipe/WriteRecipe';
 export const Main = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
+    const [isActive, setActive] = useState<string | undefined>('');
+
     return (
         <Container
             width={{ sm: '360px', md: '768px', lg: '1440px', xl: '1920px' }}
             maxWidth='100%'
             height='100vh'
+            minHeight='1040px'
             padding={0}
             margin={0}
             position='relative'
@@ -36,7 +40,12 @@ export const Main = () => {
                     display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
                     flexDirection='column'
                 >
-                    <HamburgerMenu isOpen={isOpen} onClose={onClose} />
+                    <HamburgerMenu
+                        isActive={isActive}
+                        setActive={setActive}
+                        isOpen={isOpen}
+                        onClose={onClose}
+                    />
                 </Box>
                 <Divider
                     orientation='vertical'
@@ -52,7 +61,7 @@ export const Main = () => {
                     alignItems='center'
                     px={{ sm: 0, md: 0, lg: '24px', xl: '24px' }}
                 >
-                    <AppRoutes />
+                    <AppRoutes isActive={isActive} setActive={setActive} />
                 </Box>
                 <Bookmarks />
                 <WriteRecipe />

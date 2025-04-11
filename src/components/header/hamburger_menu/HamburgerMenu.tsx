@@ -19,8 +19,10 @@ import { Navigation } from '~/components/navigation/Navigation';
 type Props = {
     onClose: () => void;
     isOpen: boolean;
+    isActive: string | undefined;
+    setActive: (isActive: string | undefined) => void;
 };
-export const HamburgerMenu = ({ onClose, isOpen }: Props) => {
+export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) => {
     const location = useLocation();
     const paths = location.pathname.split('/').filter(Boolean);
 
@@ -75,14 +77,14 @@ export const HamburgerMenu = ({ onClose, isOpen }: Props) => {
                                     );
                                 })}
                             </Breadcrumb>
-                            <Navigation />
+                            <Navigation isActive={isActive} setActive={setActive} />
                         </VStack>
                     </DrawerBody>
                 </DrawerContent>
             </Drawer>
 
             <Box display={{ sm: 'none', lg: 'block' }}>
-                <Navigation />
+                <Navigation isActive={isActive} setActive={setActive} />
             </Box>
 
             <Footer />

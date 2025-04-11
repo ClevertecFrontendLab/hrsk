@@ -1,12 +1,12 @@
 import { nanoid } from '@reduxjs/toolkit';
 
 export const tabs = [
-    { id: nanoid(), title: 'Закуски' },
-    { id: nanoid(), title: 'Первые блюда' },
-    { id: nanoid(), title: 'Вторые блюда' },
-    { id: nanoid(), title: 'Гарниры' },
-    { id: nanoid(), title: 'Десерты' },
-    { id: nanoid(), title: 'Выпечка' },
-    { id: nanoid(), title: 'Сыроедческие блюда' },
-    { id: nanoid(), title: 'Напитки' },
+    { id: nanoid(), path: 'snacks', title: 'Закуски' },
+    { id: nanoid(), path: 'courses', title: 'Первые блюда' },
+    { id: nanoid(), path: 'main-courses', title: 'Вторые блюда' },
+    { id: nanoid(), path: 'said-dishes', title: 'Гарниры' },
+    { id: nanoid(), path: 'deserts', title: 'Десерты' },
+    { id: nanoid(), path: 'bakery', title: 'Выпечка' },
+    { id: nanoid(), path: 'raw-food', title: 'Сыроедческие блюда' },
+    { id: nanoid(), path: 'drinks', title: 'Напитки' },
 ];
