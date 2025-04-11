@@ -5,7 +5,7 @@ import {
     AccordionPanel,
     Box,
 } from '@chakra-ui/icons';
-import { Accordion, List, ListItem } from '@chakra-ui/react';
+import { Accordion, Divider, List, ListItem } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router';
 
@@ -77,16 +77,19 @@ export const MultipleAccordion = (props: Props) => {
                         right={{ sm: '-10px', lg: 0 }}
                     />
                 </AccordionButton>
-                <AccordionPanel>
+                <AccordionPanel width='230px' padding={0}>
                     <List>
                         {items?.map((item, index) => {
                             const isActiveItem = item.path === isActive;
                             return (
-                                <ListItem key={item.id} width='100%'>
+                                <ListItem key={item.id} width='230px' padding='6px 8px 6px 52px'>
                                     <Box
+                                        position='relative'
                                         as='button'
-                                        py={1}
-                                        px='16px'
+                                        display='flex'
+                                        flexDirection='row'
+                                        width='230px'
+                                        alignItems='center'
                                         key={index}
                                         cursor='pointer'
                                         onClick={() => {
@@ -96,10 +99,31 @@ export const MultipleAccordion = (props: Props) => {
                                             }
                                         }}
                                         fontWeight={isActiveItem ? 700 : 500}
-                                        borderLeft={isActiveItem ? '8px' : '1px'}
-                                        borderColor='lime.300'
+                                        fontSize='16px'
                                     >
-                                        <Link to={`vegan-cuisine/${item.path}`}>{item.title}</Link>
+                                        <Divider
+                                            // borderLeft={isActiveItem ? '8px' : '1px'}
+                                            bgColor='lime.300'
+                                            width={isActiveItem ? '8px' : '1px'}
+                                            position='absolute'
+                                            // left='50%'
+                                            transform='translateX(-100%)'
+                                            maxWidth='8px'
+                                            orientation='vertical'
+                                            height='24px'
+                                            transition='width 0.3s ease'
+                                        />
+                                        <Box
+                                            paddingLeft='11px'
+                                            my='6px'
+                                            paddingRight='8px'
+                                            display='flex'
+                                            alignItems='center'
+                                        >
+                                            <Link to={`vegan-cuisine/${item.path}`}>
+                                                {item.title}
+                                            </Link>
+                                        </Box>
                                     </Box>
                                 </ListItem>
                             );
