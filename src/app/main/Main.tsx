@@ -30,12 +30,12 @@ export const Main = () => {
                     as='section'
                     maxWidth='100%'
                     width={{ sm: '360px', md: '768px', lg: '880px', xl: '1360px' }}
-                    paddingBottom='100px'
+                    // paddingBottom='100px'
                     // paddingTop='80px'
                 >
                     <Box
                         marginTop='24px'
-                        marginBottom='228px'
+                        // marginBottom='228px'
                         maxWidth='100%'
                         width={{ sm: '344px', lg: '256px', xl: '256px' }}
                         height='100%'

@@ -12,7 +12,7 @@ export const Footer = () => (
         left={0}
         bottom={0}
         paddingX='24px'
-        paddingBottom='32px'
+        // paddingBottom='32px'
     >
         <Text fontSize='xs' color='blackAlpha.400' fontWeight={500}>
             Версия программы 03.25
