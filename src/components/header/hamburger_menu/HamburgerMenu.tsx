@@ -29,25 +29,47 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
     return (
         <Flex
             direction='column'
-            height='644px'
+            height='872px'
             width={{ sm: '344px', lg: '256px' }}
             overflowY='scroll'
             alignItems='center'
+            overflowX='hidden'
             sx={{
-                scrollbarWidth: 'none',
                 '&::-webkit-scrollbar': {
-                    display: 'none',
+                    width: '8px',
+                    height: '854px',
+                },
+                '&::-webkit-scrollbar-thumb': {
+                    borderRadius: 'full',
+                    background: 'blackAlpha.300',
+                },
+                '&::-webkit-scrollbar-track': {
+                    background: 'transparent',
+                    backgroundColor: 'blackAlpha.50',
+                    // borderRadius: '8px',
                 },
             }}
+            // sx={{
+            //     scrollbarWidth: 'none',
+            //     '&::-webkit-scrollbar': {
+            //         display: 'none',
+            //     },
+            // }}
         >
-            <Drawer placement='left' onClose={onClose} isOpen={isOpen} size='xs'>
+            <Drawer placement='left' onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay />
-                <DrawerContent>
-                    <DrawerBody>
-                        <VStack align='start' spacing={4} width='100%'>
+                <DrawerContent
+                    w='344px'
+                    maxWidth='344px'
+                    maxHeight='880px'
+                    borderRadius='0 0 12px 12px'
+                >
+                    <DrawerBody maxWidth='100%' padding={0}>
+                        <VStack align='start' spacing={4}>
                             <Breadcrumb
                                 display={{ sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }}
                                 spacing='8px'
+                                padding='16px 20px 12px '
                                 separator={<ChevronRightIcon color='black.000' />}
                             >
                                 <BreadcrumbItem>
@@ -77,7 +99,26 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
                                     );
                                 })}
                             </Breadcrumb>
-                            <Navigation isActive={isActive} setActive={setActive} />
+                            <Box
+                                maxHeight='660px'
+                                overflow='auto'
+                                sx={{
+                                    '&::-webkit-scrollbar': {
+                                        width: '8px',
+                                        height: '644px',
+                                    },
+                                    '&::-webkit-scrollbar-thumb': {
+                                        borderRadius: 'full',
+                                        background: 'blackAlpha.300',
+                                    },
+                                    '&::-webkit-scrollbar-track': {
+                                        background: 'transparent',
+                                        backgroundColor: 'blackAlpha.50',
+                                    },
+                                }}
+                            >
+                                <Navigation isActive={isActive} setActive={setActive} />
+                            </Box>
                         </VStack>
                     </DrawerBody>
                 </DrawerContent>

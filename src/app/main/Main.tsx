@@ -37,7 +37,7 @@ export const Main = () => {
                         marginTop='24px'
                         marginBottom='228px'
                         maxWidth='100%'
-                        width={{ lg: '256px', xl: '256px' }}
+                        width={{ sm: '344px', lg: '256px', xl: '256px' }}
                         height='100%'
                         display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
                         flexDirection='column'

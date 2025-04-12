@@ -52,11 +52,11 @@ export const LatestRecipesCards: LatestRecipesCard[] = [
         description:
             'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
         image: oladi,
-        badge: 'Десерты и выпечка',
+        badge: 'Десерты, выпечка',
         badgeColor: 'lime.150',
         bookmarksCount: 0,
         likesCount: 1,
-        spriteId: 'Десерты и выпечка',
+        spriteId: 'Десерты, выпечка',
         display: { sm: 'none', md: 'block', lg: 'block', xl: 'block' },
     },
     {
@@ -78,11 +78,11 @@ export const LatestRecipesCards: LatestRecipesCard[] = [
         description:
             'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
         image: oladi,
-        badge: 'Десерты и выпечка',
+        badge: 'Десерты, выпечка',
         badgeColor: 'lime.150',
         bookmarksCount: 0,
         likesCount: 1,
-        spriteId: 'Десерты и выпечка',
+        spriteId: 'Десерты, выпечка',
         display: { sm: 'none', md: 'block', lg: 'none', xl: 'none' },
     },
 ];

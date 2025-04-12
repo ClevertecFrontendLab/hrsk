@@ -42,7 +42,7 @@ export const menuItems: Record<string, ItemType[]> = {
         { id: nanoid(), title: 'Пицца' },
         { id: nanoid(), title: 'Суши' },
     ],
-    ['Десерты и выпечка']: [
+    ['Десерты, выпечка']: [
         { id: nanoid(), title: 'Блины и оладьи' },
         { id: nanoid(), title: 'Пироги и пончики' },
         { id: nanoid(), title: 'Торты' },
@@ -105,7 +105,7 @@ export const menuItems: Record<string, ItemType[]> = {
         { id: nanoid(), title: 'Без глютена' },
         { id: nanoid(), title: 'Без аллергенов' },
     ],
-    ['Национальные блюда']: [
+    ['Национальные']: [
         { id: nanoid(), title: 'Американская кухня' },
         { id: nanoid(), title: 'Армянская кухня' },
         { id: nanoid(), title: 'Греческая кухня' },
@@ -127,7 +127,7 @@ export const menuItems: Record<string, ItemType[]> = {
         { id: nanoid(), title: 'Соусы сырные' },
         { id: nanoid(), title: 'Маринады' },
     ],
-    ['Домашние заготовки']: [
+    ['Заготовки']: [
         { id: nanoid(), title: 'Мясные заготовки' },
         { id: nanoid(), title: 'Рыбные заготовки' },
         { id: nanoid(), title: 'Из огурцов' },

@@ -35,26 +35,44 @@ export const MultipleAccordion = (props: Props) => {
     return (
         <Accordion
             allowToggle
-            alignContent='center'
+            display='flex'
+            justifyContent='row'
+            alignItems='center'
             allowMultiple={false}
             width={{ sm: '328px', lg: '256px', xl: '256px' }}
             maxWidth='100%'
-            paddingLeft={{ sm: '10px' }}
-            paddingRight={{ sm: '16px' }}
+            // padding='10px 16px 10px 10px'
+            // paddingLeft={{ sm: '10px' }}
+            // paddingRight={{ sm: '20px', lg: '16px' }}
             index={activeIndex}
             onChange={handleAccordionChange}
+            // borderRadius='0 0 12px 12px'
+            sx={{
+                '&::-webkit-scrollbar': {
+                    width: '8px',
+                    height: '644px',
+                },
+                '&::-webkit-scrollbar-thumb': {
+                    borderRadius: '8px',
+                    background: 'blackAlpha.300',
+                },
+                '&::-webkit-scrollbar-track': {
+                    background: 'transparent',
+                    backgroundColor: 'blackAlpha.50',
+                    borderRadius: '8px',
+                },
+            }}
         >
-            <AccordionItem border='none' width={{ lg: '230px' }}>
+            <AccordionItem border='none' width={{ sm: '302px', lg: '230px' }}>
                 <AccordionButton
                     position='relative'
-                    _hover={{ backgroundColor: 'lime.50' }}
-                    _expanded={{ backgroundColor: 'lime.100' }}
                     display='flex'
                     alignItems='center'
                     data-test-id={category === 'Веганская кухня' ? 'vegan-cuisine' : ''}
                     as={Link}
                     to={category === 'Веганская кухня' ? `/vegan-cuisine` : ''}
-                    padding={0}
+                    // padding={0}
+                    // padding='12px 8px'
                     width='100%'
                     height='48px'
                     fontSize='16px'
@@ -64,31 +82,42 @@ export const MultipleAccordion = (props: Props) => {
                     <Box
                         as='span'
                         textAlign='left'
-                        fontSize='md'
+                        fontSize='16px'
                         fontWeight='500'
                         color='black'
                         paddingX='12px'
+                        whiteSpace='nowrap'
+                        overflow='hidden'
+                        // textOverflow='ellipsis'
                     >
                         {category}
                     </Box>
                     <AccordionIcon
                         boxSize='16px'
                         position='absolute'
-                        right={{ sm: '-10px', lg: 0 }}
+                        right='0px'
+                        // right={{ sm: '-10px', lg: 0 }}
                     />
                 </AccordionButton>
-                <AccordionPanel width='230px' padding={0}>
+                <AccordionPanel width={{ sm: '302px', lg: '230px' }} padding={0}>
                     <List>
                         {items?.map((item, index) => {
                             const isActiveItem = item.path === isActive;
                             return (
-                                <ListItem key={item.id} width='230px' padding='6px 8px 6px 52px'>
+                                <ListItem
+                                    key={item.id}
+                                    width='100%'
+                                    padding='6px 8px 6px 52px'
+                                    _hover={{ bgColor: 'lime.50' }}
+                                >
                                     <Box
                                         position='relative'
+                                        role='group'
                                         as='button'
                                         display='flex'
                                         flexDirection='row'
-                                        width='230px'
+                                        width='fit-content'
+                                        whiteSpace='nowrap'
                                         alignItems='center'
                                         key={index}
                                         cursor='pointer'
@@ -102,6 +131,7 @@ export const MultipleAccordion = (props: Props) => {
                                         fontSize='16px'
                                     >
                                         <Divider
+                                            _groupHover={{ visibility: 'hidden' }}
                                             // borderLeft={isActiveItem ? '8px' : '1px'}
                                             bgColor='lime.300'
                                             width={isActiveItem ? '8px' : '1px'}
