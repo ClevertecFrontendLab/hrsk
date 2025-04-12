@@ -43,6 +43,7 @@ export const CardWithoutDescription = (props: Props) => {
                         fontWeight={500}
                         lineHeight={1.5}
                         isTruncated
+                        maxWidth={{ sm: '194px', md: '106px', lg: '148px', xl: '485px' }}
                     >
                         {title}
                     </Heading>
