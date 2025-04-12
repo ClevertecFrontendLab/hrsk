@@ -29,7 +29,7 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
     return (
         <Flex
             direction='column'
-            height='872px'
+            height='644px'
             width={{ sm: '344px', lg: '256px' }}
             overflowY='scroll'
             alignItems='center'
