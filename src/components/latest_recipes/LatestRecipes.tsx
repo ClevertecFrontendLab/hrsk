@@ -4,7 +4,12 @@ import { CustomCard } from '~/components/latest_recipes/CustomCard';
 import { LatestRecipesCards } from '~/components/latest_recipes/LatestCards';
 
 export const LatestRecipes = () => (
-    <Flex flexDirection='column' height='100%' width='100%'>
+    <Flex
+        flexDirection='column'
+        height='100%'
+        width={{ sm: '328px', md: '728px', lg: '880px', xl: '1360px' }}
+        maxWidth='100%'
+    >
         <Text
             lineHeight='1'
             fontWeight='500'
@@ -58,10 +63,13 @@ export const LatestRecipes = () => (
                     description={card.description}
                     imageSrc={card.image}
                     badgeText={card.badge}
+                    badgeColor={card.badgeColor}
                     bookmarksCount={card.bookmarksCount}
                     likesCount={card.likesCount}
+                    viewBox='4'
+                    boxSize='16px'
                     display={card.display}
-                    spriteId={card.badge}
+                    spriteId={card.spriteId}
                     position={{
                         md: index === LatestRecipesCards.length - 1 ? 'absolute' : undefined,
                     }}
