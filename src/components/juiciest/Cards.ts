@@ -53,7 +53,7 @@ export const juiciestCards: Partial<JuiciestCardType>[] = [
         badgeColor: 'lime.50',
         bookmarksCount: 124,
         likesCount: 324,
-        spriteId: 'Национальные',
+        spriteId: 'Национальные блюда',
     },
     {
         id: nanoid(),
