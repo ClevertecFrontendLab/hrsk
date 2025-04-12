@@ -10,6 +10,7 @@ export const MainFooter = () => (
         alignItems='center'
         bgColor='lime.50'
         height='100%'
+        data-test-id='footer'
         maxHeight='84px'
         // mt={{ md: '16px' }}
         position='fixed'

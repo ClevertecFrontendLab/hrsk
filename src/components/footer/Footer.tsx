@@ -4,8 +4,8 @@ import { SpriteIcon } from '~/components/sprite_icon/SpriteIcon';
 
 export const Footer = () => (
     <Stack
-        data-test-id='footer'
-        as='footer'
+        // data-test-id='footer'
+        as='aside'
         spacing='16px'
         maxWidth='256px'
         position='absolute'

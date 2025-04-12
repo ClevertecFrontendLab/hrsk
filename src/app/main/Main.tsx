@@ -24,14 +24,14 @@ export const Main = () => {
             scrollMarginTop='80px'
             // position='relative'
         >
-            <Box minHeight='1040px' position='relative'>
+            <Box minHeight='1040px' position='relative' display='flex' flexDirection='column'>
                 <Header onOpen={onOpen} />
                 <Flex
                     as='section'
                     maxWidth='100%'
                     width={{ sm: '360px', md: '768px', lg: '880px', xl: '1360px' }}
                     paddingBottom='100px'
-                    paddingTop='80px'
+                    // paddingTop='80px'
                 >
                     <Box
                         marginTop='24px'
