@@ -37,13 +37,13 @@ export const VeganPage = ({ isActive, setActive }: VeganPageProps) => {
             alignItems={{ sm: 'center', md: 'center' }}
             width={{ sm: '360px', md: '768px', lg: '880px', xl: '1360px' }}
             height='100%'
-            overflowY='scroll'
-            sx={{
-                scrollbarWidth: 'none',
-                '&::-webkit-scrollbar': {
-                    display: 'none',
-                },
-            }}
+            // overflowY='scroll'
+            // sx={{
+            //     scrollbarWidth: 'none',
+            //     '&::-webkit-scrollbar': {
+            //         display: 'none',
+            //     },
+            // }}
         >
             <Flex
                 width='100%'

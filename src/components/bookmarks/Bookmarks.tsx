@@ -6,6 +6,7 @@ export const Bookmarks = () => (
     <VStack
         position='absolute'
         right={0}
+        top='80px'
         width='100%'
         height='100%'
         maxWidth='208px'

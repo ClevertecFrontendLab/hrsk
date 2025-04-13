@@ -12,7 +12,6 @@ import {
 } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router';
 
-import { Footer } from '~/components/footer/Footer';
 import { breadcrumbsObj } from '~/components/header/breadcrumbs/BreadcrumbsObj';
 import { Navigation } from '~/components/navigation/Navigation';
 
@@ -46,15 +45,9 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
                 '&::-webkit-scrollbar-track': {
                     background: 'transparent',
                     backgroundColor: 'blackAlpha.50',
-                    // borderRadius: '8px',
+                    borderRadius: '8px',
                 },
             }}
-            // sx={{
-            //     scrollbarWidth: 'none',
-            //     '&::-webkit-scrollbar': {
-            //         display: 'none',
-            //     },
-            // }}
         >
             <Drawer placement='left' onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay />
@@ -128,7 +121,7 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
                 <Navigation isActive={isActive} setActive={setActive} />
             </Box>
 
-            <Footer />
+            {/*<Footer />*/}
         </Flex>
     );
 };

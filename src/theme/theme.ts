@@ -1,6 +1,21 @@
 import { extendTheme } from '@chakra-ui/react';
 
 const theme = extendTheme({
+    styles: {
+        global: {
+            html: {
+                height: '100%',
+            },
+            body: {
+                height: '100vh',
+                margin: 0,
+                padding: 0,
+            },
+            '#root': {
+                height: '100%',
+            },
+        },
+    },
     colors: {
         'lime.50': '#ffffd3',
         'lime.100': '#eaffc7',

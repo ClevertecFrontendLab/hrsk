@@ -6,7 +6,7 @@ import { LatestRecipesCards } from '~/components/latest_recipes/LatestCards';
 export const LatestRecipes = () => (
     <Flex
         flexDirection='column'
-        height='100%'
+        height={{ lg: '486px' }}
         width={{ sm: '328px', md: '728px', lg: '880px', xl: '1360px' }}
         maxWidth='100%'
     >
