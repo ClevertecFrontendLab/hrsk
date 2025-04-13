@@ -31,7 +31,7 @@ const theme = extendTheme({
         'blackAlpha.300': 'rgba(0, 0, 0, 0.16)',
         'blackAlpha.700': 'rgba(0, 0, 0, 0.64)',
         'blackAlpha.400': 'rgba(0, 0, 0, 0.24)',
-        'blackAlpha.600': 'rgba(255, 255, 255, 0.06)',
+        'blackAlpha.600': 'rgba(0, 0, 0, 0.48)',
         'blackAlpha.800': 'rgba(0, 0, 0, 0.8)',
         'blackAlpha.900': 'rgba(0, 0, 0, 0.92)',
     },

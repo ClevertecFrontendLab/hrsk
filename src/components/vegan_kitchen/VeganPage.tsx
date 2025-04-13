@@ -37,13 +37,6 @@ export const VeganPage = ({ isActive, setActive }: VeganPageProps) => {
             alignItems={{ sm: 'center', md: 'center' }}
             width={{ sm: '360px', md: '768px', lg: '880px', xl: '1360px' }}
             height='100%'
-            // overflowY='scroll'
-            // sx={{
-            //     scrollbarWidth: 'none',
-            //     '&::-webkit-scrollbar': {
-            //         display: 'none',
-            //     },
-            // }}
         >
             <Flex
                 width='100%'
@@ -52,7 +45,13 @@ export const VeganPage = ({ isActive, setActive }: VeganPageProps) => {
                 alignItems='center'
                 position='relative'
             >
-                <Header title='Веганская кухня' />
+                <Header
+                    title='Веганская кухня'
+                    description={
+                        'Интересны не только убеждённым вегетарианцам, но и тем, кто хочет попробовать\n' +
+                        '            вегетарианскую диету и готовить вкусные вегетарианские блюда.'
+                    }
+                />
                 <Tabs paddingBottom='12px' index={activeTabIndex} onChange={handleTabChange}>
                     <TabList
                         borderBottom='1px'

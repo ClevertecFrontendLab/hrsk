@@ -10,33 +10,54 @@ import {
     InputGroup,
     InputRightElement,
     Select,
+    Text,
     VStack,
 } from '@chakra-ui/react';
 
 type Props = {
     title: string;
+    description?: string;
 };
 
-export const Header = ({ title }: Props) => (
+export const Header = ({ title, description }: Props) => (
     <VStack
         mb={{ sm: '32px', lg: '24px' }}
         display='flex'
         flexDirection='column'
         alignItems='center'
         maxWidth='898px'
-        maxHeight='248px'
+        maxHeight='308px'
+        paddingTop={{ sm: '16px', lg: '32px' }}
     >
-        <Heading
-            py={{ sm: '16px', lg: '32px' }}
-            fontSize={{ sm: '24px', lg: '48px' }}
-            fontWeight={700}
-            lineHeight='1'
-            color='black'
-            alignSelf='stretch'
-            textAlign='center'
+        <Box
+            gap='12px'
+            paddingBottom={{ sm: '16px', lg: '32px' }}
+            display='flex'
+            flexDirection='column'
         >
-            {title}
-        </Heading>
+            <Heading
+                fontSize={{ sm: '24px', lg: '48px' }}
+                fontWeight={700}
+                lineHeight='1'
+                color='black'
+                alignSelf='stretch'
+                textAlign='center'
+            >
+                {title}
+            </Heading>
+            {description && (
+                <Text
+                    maxWidth='696px'
+                    maxHeight='48px'
+                    textAlign='center'
+                    fontSize='16px'
+                    fontWeight={500}
+                    color='blackAlpha.600'
+                >
+                    {description}
+                </Text>
+            )}
+        </Box>
         <HStack spacing='12px' width={{ sm: '328px', md: '448px', lg: '518px' }}>
             <Box as='button'>
                 <IconButton
@@ -70,8 +91,6 @@ export const Header = ({ title }: Props) => (
                     padding='0px 48px 0px 16px'
                     fontSize={{ sm: '14px', lg: '18px' }}
                     fontWeight={400}
-                    display='flex'
-                    alignItems='center'
                     height={{ sm: '32px', lg: '48px' }}
                 />
                 <InputRightElement
@@ -88,6 +107,7 @@ export const Header = ({ title }: Props) => (
             spacing='16px'
             display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
             flexDirection='row'
+            justifyContent='center'
         >
             <FormControl maxWidth='268px' maxHeight='36px' display='flex' alignItems='center'>
                 <FormLabel htmlFor='allergenToggle' padding='6px 12px 6px 8px' margin={0}>
