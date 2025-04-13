@@ -17,12 +17,14 @@ type Props = {
     items: ItemType[];
     isActive: string | undefined;
     setActive: (isActive: string | undefined) => void;
+    isOpen: boolean;
+    setIsOpen: (isOpen: boolean) => void;
 };
 
 export const MultipleAccordion = (props: Props) => {
     const [activeIndex, setActiveIndex] = useState<number | number[]>([]);
 
-    const { category, items, isActive, setActive } = props;
+    const { category, items, isActive, setActive, isOpen, setIsOpen } = props;
 
     const [, setSearchParams] = useSearchParams();
 
@@ -30,6 +32,9 @@ export const MultipleAccordion = (props: Props) => {
         const selected = Array.isArray(index) ? index[0] : index;
         setActiveIndex(selected);
         setActive('snacks');
+        if (index !== null) {
+            setIsOpen(!isOpen);
+        }
     };
 
     return (
@@ -41,16 +46,12 @@ export const MultipleAccordion = (props: Props) => {
             allowMultiple={false}
             width={{ sm: '328px', lg: '256px', xl: '256px' }}
             maxWidth='100%'
-            // padding='10px 16px 10px 10px'
-            // paddingLeft={{ sm: '10px' }}
-            // paddingRight={{ sm: '20px', lg: '16px' }}
             index={activeIndex}
             onChange={handleAccordionChange}
-            // borderRadius='0 0 12px 12px'
             sx={{
                 '&::-webkit-scrollbar': {
                     width: '8px',
-                    height: '644px',
+                    height: isOpen ? '872px' : '644px',
                 },
                 '&::-webkit-scrollbar-thumb': {
                     borderRadius: '8px',

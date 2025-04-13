@@ -10,6 +10,7 @@ import {
     Flex,
     VStack,
 } from '@chakra-ui/react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router';
 
 import { breadcrumbsObj } from '~/components/header/breadcrumbs/BreadcrumbsObj';
@@ -25,13 +26,21 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
     const location = useLocation();
     const paths = location.pathname.split('/').filter(Boolean);
 
+    const [isOpenAcc, setIsOpen] = useState(false);
+
     return (
         <Flex
             direction='column'
-            height='644px'
+            height='872px'
             width={{ sm: '344px', lg: '256px' }}
-            overflowY='scroll'
+            overflowY={isOpenAcc ? 'scroll' : 'hidden'}
             alignItems='center'
+            boxShadow={
+                isOpenAcc
+                    ? '0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                    : 'none'
+            }
+            borderRadius={isOpenAcc ? '0 0 12px 12px' : 0}
             overflowX='hidden'
             sx={{
                 '&::-webkit-scrollbar': {
@@ -110,15 +119,25 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
                                     },
                                 }}
                             >
-                                <Navigation isActive={isActive} setActive={setActive} />
+                                <Navigation
+                                    isOpen={isOpenAcc}
+                                    setIsOpen={setIsOpen}
+                                    isActive={isActive}
+                                    setActive={setActive}
+                                />
                             </Box>
                         </VStack>
                     </DrawerBody>
                 </DrawerContent>
             </Drawer>
 
-            <Box display={{ sm: 'none', lg: 'block' }}>
-                <Navigation isActive={isActive} setActive={setActive} />
+            <Box display={{ sm: 'none', lg: 'block' }} height={isOpenAcc ? '872px' : '644px'}>
+                <Navigation
+                    isOpen={isOpenAcc}
+                    setIsOpen={setIsOpen}
+                    isActive={isActive}
+                    setActive={setActive}
+                />
             </Box>
 
             {/*<Footer />*/}
