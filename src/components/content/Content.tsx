@@ -24,7 +24,7 @@ export const Content = () => (
         flexDirection='column'
         alignItems='center'
         width={{ sm: '360px', md: '768px', lg: '880px', xl: '1360px' }}
-        height='1040px'
+        height='100%'
     >
         <VStack
             mb={{ sm: '32px', lg: '24px' }}

@@ -8,6 +8,7 @@ export const MainFooter = () => {
 
     return (
         <HStack
+            as='footer'
             visibility={isVisible ? 'visible' : 'hidden'}
             // display={{sm: 'flex', lg: 'none'}}
             width={{ sm: '360px', md: '768px' }}

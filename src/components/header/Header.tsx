@@ -17,11 +17,12 @@ export const Header = ({ onOpen }: Props) => {
         <Flex
             as='header'
             data-test-id='header'
-            position='sticky'
+            position='fixed'
             zIndex={1000}
+            left={0}
+            right={0}
             top={0}
             backgroundColor='lime.500'
-            width='100%'
             height='80px'
             pl={{
                 sm: 4,
@@ -31,7 +32,7 @@ export const Header = ({ onOpen }: Props) => {
             }}
             pr={{ sm: 4, md: 5, lg: 14, xl: 14 }}
             py={{ sm: 4, md: 4, lg: 4, xl: 4 }}
-            boxShadow='customShadow'
+            // boxShadow='customShadow'
             alignItems='center'
         >
             <HeaderLogo />
