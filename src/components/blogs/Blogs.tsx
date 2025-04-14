@@ -44,7 +44,7 @@ export const Blogs = () => (
                 display={{ sm: 'none', md: 'flex' }}
                 flexDirection='row'
                 alignItems='center'
-                justifyContent='flex-end'
+                justifyContent='center'
                 fontWeight={600}
                 fontSize={{ lg: '16px', xl: '18px' }}
                 lineHeight={1.5}
@@ -102,7 +102,7 @@ export const Blogs = () => (
             display={{ sm: 'flex', md: 'none' }}
             flexDirection='row'
             alignItems='center'
-            justifyContent={{ sm: 'center', md: 'flex-end' }}
+            justifyContent='center'
             fontWeight={600}
             fontSize='16px'
             lineHeight={1.5}

@@ -10,7 +10,7 @@ export const LatestRecipes = () => (
         width={{ sm: '328px', md: '728px', lg: '880px', xl: '1360px' }}
         maxWidth='100%'
         // position='relative'
-        overflowX={{ lg: 'hidden', xl: 'visible' }}
+        // overflowX={{ lg: 'hidden', xl: 'visible' }}
     >
         <Text
             lineHeight='1'
@@ -22,12 +22,7 @@ export const LatestRecipes = () => (
             Новые рецепты
         </Text>
 
-        <HStack
-            spacing={{ sm: '12px', xl: '24px' }}
-            height={{ lg: '466px' }}
-            width='100%'
-            position='relative'
-        >
+        <Box position='relative'>
             <Box
                 as='button'
                 bgColor='black.000'
@@ -60,27 +55,6 @@ export const LatestRecipes = () => (
                     />
                 </svg>
             </Box>
-            {LatestRecipesCards.map((card, index) => (
-                <CustomCard
-                    key={card.id}
-                    title={card.title}
-                    description={card.description}
-                    imageSrc={card.image}
-                    badgeText={card.badge}
-                    badgeColor={card.badgeColor}
-                    bookmarksCount={card.bookmarksCount}
-                    likesCount={card.likesCount}
-                    viewBox='4'
-                    boxSize='16px'
-                    zIndex={card.zIndex}
-                    display={card.display}
-                    spriteId={card.spriteId}
-                    position={{
-                        md: index === LatestRecipesCards.length - 1 ? 'absolute' : undefined,
-                        // lg: index === LatestRecipesCards.length - 2 ? 'absolute' : undefined,
-                    }}
-                />
-            ))}
             <Box
                 as='button'
                 bgColor='black.000'
@@ -113,6 +87,35 @@ export const LatestRecipes = () => (
                     />
                 </svg>
             </Box>
+        </Box>
+        <HStack
+            overflowX='hidden'
+            spacing={{ sm: '12px', xl: '24px' }}
+            height={{ lg: '466px' }}
+            width='100%'
+            position='relative'
+        >
+            {LatestRecipesCards.map((card, index) => (
+                <CustomCard
+                    key={card.id}
+                    title={card.title}
+                    description={card.description}
+                    imageSrc={card.image}
+                    badgeText={card.badge}
+                    badgeColor={card.badgeColor}
+                    bookmarksCount={card.bookmarksCount}
+                    likesCount={card.likesCount}
+                    viewBox='4'
+                    boxSize='16px'
+                    zIndex={card.zIndex}
+                    display={card.display}
+                    spriteId={card.spriteId}
+                    position={{
+                        md: index === LatestRecipesCards.length - 1 ? 'absolute' : undefined,
+                        // lg: index === LatestRecipesCards.length - 2 ? 'absolute' : undefined,
+                    }}
+                />
+            ))}
         </HStack>
     </Flex>
 );

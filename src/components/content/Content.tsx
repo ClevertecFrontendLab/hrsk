@@ -37,7 +37,7 @@ export const Content = () => (
             <Heading
                 py={{ sm: '16px', lg: '32px' }}
                 fontSize={{ sm: '24px', lg: '48px' }}
-                textShadow={{ xl: '0 4px 4px rgba(0, 0, 0, 0.25)' }}
+                // textShadow={{ xl: '0 4px 4px rgba(0, 0, 0, 0.25)' }}
                 fontWeight={700}
                 lineHeight='1'
                 color='black'
