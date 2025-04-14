@@ -53,10 +53,10 @@ export const Main = () => {
                 pb='100px'
             >
                 <AppRoutes isActive={isActive} setActive={setActive} />
+                <MainFooter />
             </Box>
             <Bookmarks />
             <WriteRecipe />
-            <MainFooter />
         </>
     );
 };

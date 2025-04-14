@@ -16,7 +16,7 @@ export const JuiciestPage = () => (
     >
         <Flex
             width='100%'
-            height={{ sm: '644px', md: '368px', lg: '1080px', xl: '584px' }}
+            // height={{ sm: '644px', md: '368px', lg: '1080px', xl: '584px' }}
             flexDirection='column'
             alignItems='center'
             position='relative'
