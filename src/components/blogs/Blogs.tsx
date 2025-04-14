@@ -19,7 +19,12 @@ export const Blogs = () => (
         gap={{ sm: '12px' }}
         borderRadius='16px'
     >
-        <Flex width='100%' justifyContent='space-between' alignItems='center'>
+        <Flex
+            width='100%'
+            justifyContent='space-between'
+            alignItems='center'
+            paddingBottom={{ sm: '12px', lg: '16px', xl: '24px' }}
+        >
             <Text
                 lineHeight='1'
                 fontWeight='500'
@@ -34,14 +39,14 @@ export const Blogs = () => (
                 borderRadius='6px'
                 gap='8px'
                 padding={{ lg: '0 16px', xl: '0px 24px' }}
-                width='197px'
-                height='48px'
+                width={{ sm: '149px', lg: '176px' }}
+                height={{ sm: '40px', lg: '48px' }}
                 display={{ sm: 'none', md: 'flex' }}
                 flexDirection='row'
                 alignItems='center'
                 justifyContent='flex-end'
                 fontWeight={600}
-                fontSize='16px'
+                fontSize={{ lg: '16px', xl: '18px' }}
                 lineHeight={1.5}
             >
                 Все авторы

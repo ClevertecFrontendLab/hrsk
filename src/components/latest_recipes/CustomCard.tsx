@@ -190,7 +190,7 @@ export const Reactions = (props: ReactionsPropsType) => {
                         />
                     </svg>
                 )}
-                <Text lineHeight={1.5} fontWeight={600} fontSize='md' color='lime.600'>
+                <Text lineHeight={1.5} fontWeight={600} fontSize={{ sm: '12px' }} color='lime.600'>
                     {bookmarksCount > 0 && bookmarksCount}
                 </Text>
             </Box>
@@ -213,7 +213,7 @@ export const Reactions = (props: ReactionsPropsType) => {
                         />
                     </svg>
                 )}
-                <Text lineHeight={1.5} fontWeight={600} fontSize='md' color='lime.600'>
+                <Text lineHeight={1.5} fontWeight={600} fontSize={{ sm: '12px' }} color='lime.600'>
                     {likesCount > 0 && likesCount}
                 </Text>
             </Box>

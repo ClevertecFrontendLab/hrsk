@@ -58,6 +58,7 @@ export const CardWithoutDescription = (props: Props) => {
                         right='0'
                         width={{ sm: '70px', xl: '87px' }}
                         height={{ sm: '32px' }}
+                        background='unset'
                     >
                         Готовить
                     </Button>

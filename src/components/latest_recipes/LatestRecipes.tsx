@@ -10,7 +10,7 @@ export const LatestRecipes = () => (
         width={{ sm: '328px', md: '728px', lg: '880px', xl: '1360px' }}
         maxWidth='100%'
         // position='relative'
-        overflowX='hidden'
+        overflowX={{ lg: 'hidden', xl: 'visible' }}
     >
         <Text
             lineHeight='1'
@@ -39,7 +39,7 @@ export const LatestRecipes = () => (
                 zIndex={3}
                 bottom={{ lg: '213px', xl: '219px' }}
                 top={{ lg: '149px', xl: '147px' }}
-                left={0}
+                left='-8px'
                 // marginBottom={{ lg: '41px', xl: '35px' }}
                 color='white'
                 display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
@@ -88,7 +88,7 @@ export const LatestRecipes = () => (
                 padding='0px 12px'
                 width={{ lg: '40px', xl: '48px' }}
                 height={{ lg: '40px', xl: '48px' }}
-                right={0}
+                right='-8px'
                 position='absolute'
                 bottom={{ lg: '213px', xl: '219px' }}
                 top={{ lg: '149px', xl: '147px' }}
