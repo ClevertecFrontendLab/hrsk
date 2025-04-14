@@ -9,6 +9,8 @@ export const LatestRecipes = () => (
         height={{ lg: '486px' }}
         width={{ sm: '328px', md: '728px', lg: '880px', xl: '1360px' }}
         maxWidth='100%'
+        // position='relative'
+        overflowX='hidden'
     >
         <Text
             lineHeight='1'
@@ -22,21 +24,23 @@ export const LatestRecipes = () => (
 
         <HStack
             spacing={{ sm: '12px', xl: '24px' }}
-            position='relative'
+            height={{ lg: '466px' }}
             width='100%'
-            overflowX='hidden'
+            position='relative'
         >
             <Box
                 as='button'
                 bgColor='black.000'
                 borderRadius='6px'
                 padding='0px 12px'
-                width='48px'
-                height='48px'
+                width={{ lg: '40px', xl: '48px' }}
+                height={{ lg: '40px', xl: '48px' }}
                 position='absolute'
-                left='-8px'
-                zIndex={1}
-                marginBottom='35px'
+                zIndex={3}
+                bottom={{ lg: '213px', xl: '219px' }}
+                top={{ lg: '149px', xl: '147px' }}
+                left={0}
+                // marginBottom={{ lg: '41px', xl: '35px' }}
                 color='white'
                 display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
                 alignItems='center'
@@ -68,10 +72,12 @@ export const LatestRecipes = () => (
                     likesCount={card.likesCount}
                     viewBox='4'
                     boxSize='16px'
+                    zIndex={card.zIndex}
                     display={card.display}
                     spriteId={card.spriteId}
                     position={{
                         md: index === LatestRecipesCards.length - 1 ? 'absolute' : undefined,
+                        // lg: index === LatestRecipesCards.length - 2 ? 'absolute' : undefined,
                     }}
                 />
             ))}
@@ -80,13 +86,16 @@ export const LatestRecipes = () => (
                 bgColor='black.000'
                 borderRadius='6px'
                 padding='0px 12px'
-                width='48px'
-                height='48px'
-                right='-8px'
+                width={{ lg: '40px', xl: '48px' }}
+                height={{ lg: '40px', xl: '48px' }}
+                right={0}
                 position='absolute'
+                bottom={{ lg: '213px', xl: '219px' }}
+                top={{ lg: '149px', xl: '147px' }}
+                zIndex={3}
                 display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
                 alignItems='center'
-                marginBottom='35px'
+                // marginBottom='35px'
                 color='white'
             >
                 <svg

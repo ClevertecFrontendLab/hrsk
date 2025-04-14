@@ -17,6 +17,7 @@ type LatestRecipesCard = {
     image?: string;
     spriteId: string;
     display?: CardProps['display'];
+    zIndex?: CardProps['zIndex'];
 };
 
 export const LatestRecipesCards: LatestRecipesCard[] = [
@@ -83,6 +84,6 @@ export const LatestRecipesCards: LatestRecipesCard[] = [
         bookmarksCount: 0,
         likesCount: 1,
         spriteId: 'Десерты, выпечка',
-        display: { sm: 'none', md: 'block', lg: 'none', xl: 'none' },
+        display: { sm: 'none', md: 'block', lg: 'flow', xl: 'none' },
     },
 ];

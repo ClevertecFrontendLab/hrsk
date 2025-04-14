@@ -27,6 +27,7 @@ type PropsType = {
     likesCount?: number;
     display?: CardProps['display'];
     position?: CardProps['position'];
+    zIndex?: CardProps['zIndex'];
 };
 
 export const CustomCard = ({
@@ -43,6 +44,7 @@ export const CustomCard = ({
     badgeColor,
     viewBox,
     boxSize,
+    zIndex,
 }: PropsType) => {
     const [isVisible] = useMediaQuery('(min-width: 769px)');
 
@@ -55,12 +57,13 @@ export const CustomCard = ({
                 lg: '277px',
                 xl: '322px',
             }}
-            height='100%'
+            height={{ sm: '220px', lg: '402px', xl: '414px' }}
             borderRadius='8px'
             border='1px'
             borderColor='blackAlpha.200'
             display={display}
-            right={position && '-110px'}
+            right={{ md: position && '-110px', lg: position && '-264px' }}
+            zIndex={zIndex}
         >
             <CardBody padding={0} position='relative'>
                 <Badge
