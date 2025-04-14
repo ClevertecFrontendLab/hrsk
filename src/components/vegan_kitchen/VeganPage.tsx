@@ -40,7 +40,8 @@ export const VeganPage = ({ isActive, setActive }: VeganPageProps) => {
         >
             <Flex
                 width='100%'
-                height={{ sm: '644px', md: '368px', lg: '1080px', xl: '584px' }}
+                height='100%'
+                // height={{ sm: '644px', md: '368px', lg: '1080px', xl: '584px' }}
                 flexDirection='column'
                 alignItems='center'
                 position='relative'

@@ -25,32 +25,29 @@ export const Header = ({ title, description }: Props) => (
         display='flex'
         flexDirection='column'
         alignItems='center'
-        maxWidth='898px'
-        maxHeight='308px'
+        width={{ sm: '328px', md: '727px', lg: '578px', xl: '898px' }}
+        maxHeight={{ sm: '176px', md: '136px', lg: '308px' }}
         paddingTop={{ sm: '16px', lg: '32px' }}
     >
-        <Box
-            gap='12px'
-            paddingBottom={{ sm: '16px', lg: '32px' }}
-            display='flex'
-            flexDirection='column'
-        >
+        <Box paddingBottom={{ sm: '16px', lg: '32px' }} display='flex' flexDirection='column'>
             <Heading
                 fontSize={{ sm: '24px', lg: '48px' }}
                 fontWeight={700}
+                width={{ lg: '696px' }}
                 lineHeight='1'
                 color='black'
                 alignSelf='stretch'
                 textAlign='center'
+                paddingBottom={{ sm: '16px', md: '16px' }}
             >
                 {title}
             </Heading>
             {description && (
                 <Text
                     maxWidth='696px'
-                    maxHeight='48px'
+                    maxHeight='fit-content'
                     textAlign='center'
-                    fontSize='16px'
+                    fontSize={{ sm: '14px', lg: '16px' }}
                     fontWeight={500}
                     color='blackAlpha.600'
                 >
@@ -92,6 +89,7 @@ export const Header = ({ title, description }: Props) => (
                     fontSize={{ sm: '14px', lg: '18px' }}
                     fontWeight={400}
                     height={{ sm: '32px', lg: '48px' }}
+                    _placeholder={{ color: 'lime.800' }}
                 />
                 <InputRightElement
                     width={{ sm: '32px', lg: '48px' }}
@@ -115,7 +113,12 @@ export const Header = ({ title, description }: Props) => (
                 </FormLabel>
                 <Switch id='allergenToggle' />
             </FormControl>
-            <Select maxWidth='234px' maxHeight='40px' placeholder='Выберите из списка...' />
+            <Select
+                maxWidth='234px'
+                maxHeight='40px'
+                placeholder='Выберите из списка...'
+                _placeholder={{ color: 'blackAlpha.700' }}
+            />
         </HStack>
     </VStack>
 );
