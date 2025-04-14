@@ -48,6 +48,8 @@ export const MultipleAccordion = (props: Props) => {
             maxWidth='100%'
             index={activeIndex}
             onChange={handleAccordionChange}
+            paddingLeft='10px'
+            paddingRight='16px'
             sx={{
                 '&::-webkit-scrollbar': {
                     width: '8px',
@@ -74,6 +76,10 @@ export const MultipleAccordion = (props: Props) => {
                     to={category === 'Веганская кухня' ? `/vegan-cuisine` : ''}
                     // padding={0}
                     // padding='12px 8px'
+                    _hover={category && { backgroundColor: 'lime.50' }}
+                    _expanded={category && { backgroundColor: 'lime.100' }}
+                    // _activeLink={category && { backgroundColor: 'lime.100' }}
+                    // _active={category && { backgroundColor: 'lime.100' }}
                     width='100%'
                     height='48px'
                     fontSize='16px'
