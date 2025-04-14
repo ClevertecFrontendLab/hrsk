@@ -10,13 +10,12 @@ export const Juiciest = () => {
 
     return (
         <Flex
-            width={{ sm: '360px', md: '728px', lg: '880px', xl: '1360px' }}
+            width={{ sm: '328px', md: '728px', lg: '880px', xl: '1360px' }}
             maxWidth='100%'
             height={{ sm: '644px', md: '368px', lg: '1080px', xl: '584px' }}
             mt='40px'
             flexDirection='column'
             alignItems='center'
-            gap={{ sm: '12px' }}
             position='relative'
         >
             <Flex
@@ -68,7 +67,11 @@ export const Juiciest = () => {
                     </svg>
                 </Box>
             </Flex>
-            <SimpleGrid columns={{ sm: 1, md: 2, lg: 1, xl: 2 }} spacing={{ sm: 3, lg: 4, xl: 6 }}>
+            <SimpleGrid
+                columns={{ sm: 1, md: 2, lg: 1, xl: 2 }}
+                spacing={{ sm: 3, lg: 4, xl: 6 }}
+                paddingBottom={{ sm: '12px', md: '12px' }}
+            >
                 {juiciestCards.slice(0, 4).map((card) => (
                     <JuiciestCard
                         title={card.title}
