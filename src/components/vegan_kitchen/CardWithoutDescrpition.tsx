@@ -49,6 +49,7 @@ export const CardWithoutDescription = (props: Props) => {
                         {title}
                     </Heading>
                     <Button
+                        variant='outlined'
                         borderWidth='1px'
                         borderColor='lime.600'
                         fontSize={{ sm: '12px' }}
@@ -58,7 +59,6 @@ export const CardWithoutDescription = (props: Props) => {
                         right='0'
                         width={{ sm: '70px', xl: '87px' }}
                         height={{ sm: '32px' }}
-                        background='unset'
                     >
                         Готовить
                     </Button>
