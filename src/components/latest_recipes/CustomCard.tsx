@@ -64,6 +64,7 @@ export const CustomCard = ({
             display={display}
             right={{ md: position && '-110px', lg: position && '-264px' }}
             zIndex={zIndex}
+            _hover={{ boxShadow: 'cardsShadow' }}
         >
             <CardBody padding={0} position='relative'>
                 <Badge

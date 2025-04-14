@@ -53,6 +53,7 @@ export const JuiciestCard = (props: PropsType) => {
             overflow='hidden'
             display='flex'
             flexDirection='row'
+            _hover={{ boxShadow: 'cardsShadow' }}
         >
             <Box position='relative'>
                 <Image

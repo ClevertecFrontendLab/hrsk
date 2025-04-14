@@ -34,6 +34,7 @@ export const VeganCard = ({
         border='1px'
         overflow='hidden'
         borderColor='blackAlpha.200'
+        _hover={{ boxShadow: 'cardsShadow' }}
     >
         <CardBody padding={{ sm: '12px', lg: '16px', xl: '24px 24px 20px 24px' }}>
             <Heading

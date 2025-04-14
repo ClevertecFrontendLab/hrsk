@@ -23,6 +23,7 @@ export const CardWithoutDescription = (props: Props) => {
             display='flex'
             flexDirection='row'
             alignItems='center'
+            _hover={{ boxShadow: 'cardsShadow' }}
         >
             <CardBody padding={{ sm: '14px', md: '12px', xl: '14px 24px 14px 24px' }} width='100%'>
                 <HStack
