@@ -11,12 +11,13 @@ import { WriteRecipe } from '~/components/write_recipe/WriteRecipe';
 
 export const Main = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    console.log(isOpen);
 
     const [isActive, setActive] = useState<string | undefined>('');
 
     return (
         <>
-            <Header onOpen={onOpen} />
+            <Header onOpen={onOpen} isOpen={isOpen} onClose={onClose} />
             <Box
                 position='fixed'
                 top='80px'

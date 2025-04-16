@@ -8,6 +8,8 @@ import {
     DrawerContent,
     DrawerOverlay,
     Flex,
+    Stack,
+    Text,
     VStack,
 } from '@chakra-ui/react';
 import { useState } from 'react';
@@ -15,6 +17,7 @@ import { Link, useLocation } from 'react-router';
 
 import { breadcrumbsObj } from '~/components/header/breadcrumbs/BreadcrumbsObj';
 import { Navigation } from '~/components/navigation/Navigation';
+import { SpriteIcon } from '~/components/sprite_icon/SpriteIcon';
 
 type Props = {
     onClose: () => void;
@@ -31,7 +34,7 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
     return (
         <Flex
             direction='column'
-            height='872px'
+            height={{ sm: '712px', md: '868px' }}
             width={{ sm: '344px', lg: '256px' }}
             overflowY={isOpenAcc ? 'scroll' : 'hidden'}
             alignItems='center'
@@ -42,30 +45,41 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
             }
             borderRadius={isOpenAcc ? '0 0 12px 12px' : 0}
             overflowX='hidden'
-            sx={{
-                '&::-webkit-scrollbar': {
-                    width: '8px',
-                    height: '854px',
-                },
-                '&::-webkit-scrollbar-thumb': {
-                    borderRadius: 'full',
-                    background: 'blackAlpha.300',
-                },
-                '&::-webkit-scrollbar-track': {
-                    background: 'transparent',
-                    backgroundColor: 'blackAlpha.50',
-                    borderRadius: '8px',
-                },
-            }}
+            // sx={{
+            //     '&::-webkit-scrollbar': {
+            //         width: '8px',
+            //         height: '854px',
+            //     },
+            //     '&::-webkit-scrollbar-thumb': {
+            //         borderRadius: 'full',
+            //         background: 'blackAlpha.300',
+            //     },
+            //     '&::-webkit-scrollbar-track': {
+            //         background: 'transparent',
+            //         backgroundColor: 'blackAlpha.50',
+            //         borderRadius: '8px',
+            //     },
+            // }}
         >
-            <Drawer placement='left' onClose={onClose} isOpen={isOpen}>
-                <DrawerOverlay />
+            <Drawer placement='right' onClose={onClose} isOpen={isOpen}>
+                <DrawerOverlay
+                    zIndex={1100}
+                    mt='64px'
+                    pl={{ sm: '8px' }}
+                    mr={{ sm: '8px', md: '12px' }}
+                    boxShadow='0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+                />
                 <DrawerContent
+                    zIndex={1000}
+                    mt='64px'
+                    mr={{ sm: '8px', md: '12px' }}
                     w='344px'
                     maxWidth='344px'
-                    maxHeight='880px'
+                    maxHeight={{ sm: '712px', md: '876px' }}
                     borderRadius='0 0 12px 12px'
+                    padding='16px 0 0 0'
                 >
+                    {/*<DrawerCloseButton />*/}
                     <DrawerBody maxWidth='100%' padding={0}>
                         <VStack align='start' spacing={4}>
                             <Breadcrumb
@@ -102,12 +116,12 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
                                 })}
                             </Breadcrumb>
                             <Box
-                                maxHeight='660px'
+                                height='444px'
                                 overflow='auto'
                                 sx={{
                                     '&::-webkit-scrollbar': {
                                         width: '8px',
-                                        height: '644px',
+                                        height: '584px',
                                     },
                                     '&::-webkit-scrollbar-thumb': {
                                         borderRadius: 'full',
@@ -116,6 +130,7 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
                                     '&::-webkit-scrollbar-track': {
                                         background: 'transparent',
                                         backgroundColor: 'blackAlpha.50',
+                                        borderRadius: '8px',
                                     },
                                 }}
                             >
@@ -128,9 +143,39 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
                             </Box>
                         </VStack>
                     </DrawerBody>
+                    <Stack
+                        // data-test-id='footer'
+                        as='aside'
+                        spacing='16px'
+                        maxWidth='344px'
+                        height='144px'
+                        padding='16px 24px 32px 24px'
+                        // paddingBottom='32px'
+                    >
+                        <Text fontSize='xs' color='blackAlpha.400' fontWeight={500}>
+                            Версия программы 03.25
+                        </Text>
+                        <Text fontSize='xs' color='blackAlpha.700' fontWeight={400}>
+                            Все права защищены, ученический файл, ©Клевер Технолоджи, 2025
+                        </Text>
+                        <Box
+                            as='button'
+                            paddingY='2px'
+                            display='flex'
+                            flexDirection='row'
+                            alignItems='center'
+                            justifyItems='center'
+                            maxWidth='208px'
+                            maxHeight='16px'
+                        >
+                            <SpriteIcon viewBox='12px 12px' boxSize='12px' spriteId='Выйти' />
+                            <Text paddingLeft='6px' fontSize='xs' fontWeight={600} lineHeight={1.3}>
+                                Выйти
+                            </Text>
+                        </Box>
+                    </Stack>
                 </DrawerContent>
             </Drawer>
-
             <Box display={{ sm: 'none', lg: 'block' }} height={isOpenAcc ? '872px' : '644px'}>
                 <Navigation
                     isOpen={isOpenAcc}

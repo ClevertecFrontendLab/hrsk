@@ -50,21 +50,21 @@ export const MultipleAccordion = (props: Props) => {
             onChange={handleAccordionChange}
             paddingLeft='10px'
             paddingRight='16px'
-            sx={{
-                '&::-webkit-scrollbar': {
-                    width: '8px',
-                    height: isOpen ? '872px' : '644px',
-                },
-                '&::-webkit-scrollbar-thumb': {
-                    borderRadius: '8px',
-                    background: 'blackAlpha.300',
-                },
-                '&::-webkit-scrollbar-track': {
-                    background: 'transparent',
-                    backgroundColor: 'blackAlpha.50',
-                    borderRadius: '8px',
-                },
-            }}
+            // sx={{
+            //     '&::-webkit-scrollbar': {
+            //         width: '8px',
+            //         height: isOpen ? '872px' : '644px',
+            //     },
+            //     '&::-webkit-scrollbar-thumb': {
+            //         borderRadius: '8px',
+            //         background: 'blackAlpha.300',
+            //     },
+            //     '&::-webkit-scrollbar-track': {
+            //         background: 'transparent',
+            //         backgroundColor: 'blackAlpha.50',
+            //         borderRadius: '8px',
+            //     },
+            // }}
         >
             <AccordionItem border='none' width={{ sm: '302px', lg: '230px' }}>
                 <AccordionButton

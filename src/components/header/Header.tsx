@@ -8,10 +8,14 @@ import { SpriteIcon } from '~/components/sprite_icon/SpriteIcon';
 
 type Props = {
     onOpen: () => void;
+    onClose: () => void;
+    isOpen: boolean;
 };
 
-export const Header = ({ onOpen }: Props) => {
+export const Header = ({ onOpen, isOpen, onClose }: Props) => {
     const [isVisible] = useMediaQuery('(min-width: 769px)');
+
+    console.log(isOpen);
 
     return (
         <Flex
@@ -22,8 +26,8 @@ export const Header = ({ onOpen }: Props) => {
             left={0}
             right={0}
             top={0}
-            backgroundColor='lime.500'
-            height='80px'
+            backgroundColor={isOpen ? '#FFF' : 'lime.500'}
+            height={{ sm: '64px', lg: '80px' }}
             pl={{
                 sm: 4,
                 md: 5,
@@ -38,90 +42,92 @@ export const Header = ({ onOpen }: Props) => {
             <HeaderLogo />
             <Breadcrumbs />
             <ProfileInfo />
-            <HStack
-                position='absolute'
-                right='68px'
-                maxWidth='203px'
-                maxHeight='24px'
-                visibility={isVisible ? 'hidden' : 'visible'}
-                alignItems='center'
-                justifyContent='center'
-                px={{ sm: 2, md: 4 }}
-            >
-                <Box
-                    as='button'
-                    display='flex'
-                    alignItems='center'
-                    maxWidth='57px'
+            {!isOpen && (
+                <HStack
+                    position='absolute'
+                    right='68px'
+                    maxWidth='203px'
                     maxHeight='24px'
-                    borderRadius='6px'
-                >
-                    <SpriteIcon
-                        viewBox='16px 16px'
-                        boxSize='16px'
-                        spritePath='/spriteRightSide.svg'
-                        spriteId='bookmark'
-                    />
-                    <Text
-                        paddingLeft='8px'
-                        lineHeight={1.5}
-                        fontWeight={600}
-                        fontSize={{ sm: '12px', md: '12px' }}
-                        color='lime.600'
-                    >
-                        185
-                    </Text>
-                </Box>
-                <Box
-                    as='button'
-                    display='flex'
+                    visibility={isVisible ? 'hidden' : 'visible'}
                     alignItems='center'
-                    maxWidth='57px'
-                    maxHeight='24px'
-                    borderRadius='6px'
+                    justifyContent='center'
+                    px={{ sm: 2, md: 4 }}
                 >
-                    <SpriteIcon
-                        viewBox='16px'
-                        boxSize='16px'
-                        spritePath='/spriteRightSide.svg'
-                        spriteId='people'
-                    />
-                    <Text
-                        paddingLeft='8px'
-                        lineHeight={1.5}
-                        fontWeight={600}
-                        fontSize={{ sm: '12px', md: '12px' }}
-                        color='lime.600'
+                    <Box
+                        as='button'
+                        display='flex'
+                        alignItems='center'
+                        maxWidth='57px'
+                        maxHeight='24px'
+                        borderRadius='6px'
                     >
-                        589
-                    </Text>
-                </Box>
-                <Box
-                    as='button'
-                    display='flex'
-                    alignItems='center'
-                    maxWidth='57px'
-                    maxHeight='24px'
-                    borderRadius='6px'
-                >
-                    <SpriteIcon
-                        viewBox='16px 16px'
-                        boxSize='16px'
-                        spritePath='/spriteRightSide.svg'
-                        spriteId='emoji'
-                    />
-                    <Text
-                        paddingLeft='8px'
-                        lineHeight={1.5}
-                        fontWeight={600}
-                        fontSize={{ sm: '12px', md: '12px' }}
-                        color='lime.600'
+                        <SpriteIcon
+                            viewBox='16px 16px'
+                            boxSize='16px'
+                            spritePath='/spriteRightSide.svg'
+                            spriteId='bookmark'
+                        />
+                        <Text
+                            paddingLeft='8px'
+                            lineHeight={1.5}
+                            fontWeight={600}
+                            fontSize={{ sm: '12px', md: '12px' }}
+                            color='lime.600'
+                        >
+                            185
+                        </Text>
+                    </Box>
+                    <Box
+                        as='button'
+                        display='flex'
+                        alignItems='center'
+                        maxWidth='57px'
+                        maxHeight='24px'
+                        borderRadius='6px'
                     >
-                        587
-                    </Text>
-                </Box>
-            </HStack>
-            <HamburgerButton onOpen={onOpen} />
+                        <SpriteIcon
+                            viewBox='16px'
+                            boxSize='16px'
+                            spritePath='/spriteRightSide.svg'
+                            spriteId='people'
+                        />
+                        <Text
+                            paddingLeft='8px'
+                            lineHeight={1.5}
+                            fontWeight={600}
+                            fontSize={{ sm: '12px', md: '12px' }}
+                            color='lime.600'
+                        >
+                            589
+                        </Text>
+                    </Box>
+                    <Box
+                        as='button'
+                        display='flex'
+                        alignItems='center'
+                        maxWidth='57px'
+                        maxHeight='24px'
+                        borderRadius='6px'
+                    >
+                        <SpriteIcon
+                            viewBox='16px 16px'
+                            boxSize='16px'
+                            spritePath='/spriteRightSide.svg'
+                            spriteId='emoji'
+                        />
+                        <Text
+                            paddingLeft='8px'
+                            lineHeight={1.5}
+                            fontWeight={600}
+                            fontSize={{ sm: '12px', md: '12px' }}
+                            color='lime.600'
+                        >
+                            587
+                        </Text>
+                    </Box>
+                </HStack>
+            )}
+            <HamburgerButton isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
         </Flex>
     );
 };
