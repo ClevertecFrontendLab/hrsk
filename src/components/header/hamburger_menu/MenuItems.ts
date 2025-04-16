@@ -1,9 +1,13 @@
 import { nanoid } from '@reduxjs/toolkit';
 
+import { mocRecipes } from '~/store/moc-recipes';
+import { Recipe } from '~/types';
+
 export type ItemType = {
     id: string;
     title: string;
     path?: string;
+    recipes?: Recipe[];
 };
 
 export const menuItems: Record<string, ItemType[]> = {
@@ -11,13 +15,13 @@ export const menuItems: Record<string, ItemType[]> = {
         { id: nanoid(), title: 'Мясные салаты' },
         { id: nanoid(), title: 'Рыбные салаты' },
         { id: nanoid(), title: 'Овощные салаты' },
-        { id: nanoid(), title: 'Теплые салаты' },
+        { id: nanoid(), title: 'Теплые салаты', path: 'warm-salads', recipes: [mocRecipes[8]] },
     ],
     ['Закуски']: [
         { id: nanoid(), title: 'Мясные закуски' },
         { id: nanoid(), title: 'Рыбные закуски' },
         { id: nanoid(), title: 'Овощные закуски' },
-        { id: nanoid(), title: 'Теплые закуски' },
+        { id: nanoid(), title: 'Теплые закуски', path: 'warm-snacks', recipes: [mocRecipes[1]] },
         { id: nanoid(), title: 'Бутерброды' },
         { id: nanoid(), title: 'Фастфуд' },
     ],
@@ -31,8 +35,18 @@ export const menuItems: Record<string, ItemType[]> = {
     ['Вторые блюда']: [
         { id: nanoid(), title: 'Мясные' },
         { id: nanoid(), title: 'Рыбные' },
-        { id: nanoid(), title: 'Овощные' },
-        { id: nanoid(), title: 'Из птицы' },
+        {
+            id: nanoid(),
+            title: 'Овощные',
+            path: 'vegetables',
+            recipes: [mocRecipes[0], mocRecipes[2], mocRecipes[4], mocRecipes[6], mocRecipes[9]],
+        },
+        {
+            id: nanoid(),
+            title: 'Из птицы',
+            path: 'poultry-dish',
+            recipes: [mocRecipes[3], mocRecipes[7]],
+        },
         { id: nanoid(), title: 'Из грибов' },
         { id: nanoid(), title: 'Из субпродуктов' },
         { id: nanoid(), title: 'На пару' },
@@ -66,10 +80,25 @@ export const menuItems: Record<string, ItemType[]> = {
         { id: nanoid(), title: 'Овощи' },
     ],
     ['Веганская кухня']: [
-        { id: nanoid(), title: 'Закуски', path: 'snacks' },
-        { id: nanoid(), title: 'Первые блюда', path: 'courses' },
-        { id: nanoid(), title: 'Вторые блюда', path: 'main-courses' },
-        { id: nanoid(), title: 'Гарниры', path: 'said-dishes' },
+        {
+            id: nanoid(),
+            title: 'Закуски',
+            path: 'snacks',
+            recipes: [mocRecipes[0], mocRecipes[1], mocRecipes[5]],
+        },
+        { id: nanoid(), title: 'Первые блюда', path: 'courses', recipes: [mocRecipes[9]] },
+        {
+            id: nanoid(),
+            title: 'Вторые блюда',
+            path: 'second-dish',
+            recipes: [mocRecipes[2], mocRecipes[3], mocRecipes[5]],
+        },
+        {
+            id: nanoid(),
+            title: 'Гарниры',
+            path: 'side-dishes',
+            recipes: [mocRecipes[4], mocRecipes[6]],
+        },
         { id: nanoid(), title: 'Десерты', path: 'deserts' },
         { id: nanoid(), title: 'Выпечка', path: 'bakery' },
         { id: nanoid(), title: 'Сыроедческие блюда', path: 'raw-food' },
@@ -110,7 +139,7 @@ export const menuItems: Record<string, ItemType[]> = {
         { id: nanoid(), title: 'Армянская кухня' },
         { id: nanoid(), title: 'Греческая кухня' },
         { id: nanoid(), title: 'Грузинская кухня' },
-        { id: nanoid(), title: 'Итальянская кухня' },
+        { id: nanoid(), title: 'Итальянская кухня', path: 'italian', recipes: [mocRecipes[2]] },
         { id: nanoid(), title: 'Испанская кухня' },
         { id: nanoid(), title: 'Китайская кухня' },
         { id: nanoid(), title: 'Мексиканская кухня' },

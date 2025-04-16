@@ -15,6 +15,12 @@ export const Breadcrumbs = ({ setActive }: Props) => {
     const [searchParams] = useSearchParams();
     const tab = searchParams.get('tab');
 
+    // if (tab) {
+    //     paths.push(tab);
+    // }
+    if (!tab && paths[0] === 'vegan-cuisine') {
+        paths.push('snacks');
+    }
     if (tab) {
         paths.push(tab);
     }
