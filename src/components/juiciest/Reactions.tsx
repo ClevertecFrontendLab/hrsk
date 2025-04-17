@@ -8,7 +8,7 @@ export const Reactions = (props: ReactionsPropsType) => {
     const { bookmarksCount, likesCount } = props;
 
     return (
-        <HStack spacing='8px'>
+        <HStack spacing='8px' display='flex' flexDirection='row' justifyContent='flex-end'>
             <Box display='flex' alignItems='center' gap='6px'>
                 {bookmarksCount && (
                     <svg

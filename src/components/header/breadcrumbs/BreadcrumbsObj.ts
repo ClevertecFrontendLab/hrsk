@@ -1,7 +1,7 @@
 export const breadcrumbsObj: Record<string, string> = {
     '/': 'Главная',
     juiciest: 'Самое сочное',
-    'vegan-cuisine': 'Веганская кухня',
+    vegan: 'Веганская кухня',
     snacks: 'Закуски',
     courses: 'Первые блюда',
     'second-dish': 'Вторые блюда',
@@ -10,4 +10,5 @@ export const breadcrumbsObj: Record<string, string> = {
     bakery: 'Выпечка',
     'raw-food': 'Сыроедческие блюда',
     drinks: 'Напитки',
+    national: 'Национальные',
 };

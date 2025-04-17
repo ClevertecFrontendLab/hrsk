@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/icons';
 import { Accordion, Divider, List, ListItem } from '@chakra-ui/react';
 import { useState } from 'react';
-import { Link, useSearchParams } from 'react-router';
+import { Link } from 'react-router';
 
 import { ItemType } from '~/components/header/hamburger_menu/MenuItems';
 import { SpriteIcon } from '~/components/sprite_icon/SpriteIcon';
@@ -26,7 +26,7 @@ export const MultipleAccordion = (props: Props) => {
 
     const { category, items, isActive, setActive, isOpen, setIsOpen } = props;
 
-    const [, setSearchParams] = useSearchParams();
+    // const [, setSearchParams] = useSearchParams();
 
     const handleAccordionChange = (index: number | number[]) => {
         const selected = Array.isArray(index) ? index[0] : index;
@@ -71,9 +71,9 @@ export const MultipleAccordion = (props: Props) => {
                     position='relative'
                     display='flex'
                     alignItems='center'
-                    data-test-id={category === 'Веганская кухня' ? 'vegan-cuisine' : ''}
+                    data-test-id={category === 'Веганская кухня' ? 'vegan' : ''}
                     as={Link}
-                    to={category === 'Веганская кухня' ? `/vegan-cuisine` : ''}
+                    to={category === 'Веганская кухня' ? 'vegan' : ''}
                     // padding={0}
                     // padding='12px 8px'
                     _hover={category && { backgroundColor: 'lime.50' }}
@@ -130,9 +130,12 @@ export const MultipleAccordion = (props: Props) => {
                                         cursor='pointer'
                                         onClick={() => {
                                             setActive(item.path);
-                                            if (item.path) {
-                                                setSearchParams({ tab: item.path });
-                                            }
+                                            // if (item.path) {
+                                            //     setSearchParams(item.path);
+                                            // }
+                                            // if (item.path) {
+                                            //     setSearchParams({ tab: item.path });
+                                            // }
                                         }}
                                         fontWeight={isActiveItem ? 700 : 500}
                                         fontSize='16px'
@@ -157,9 +160,7 @@ export const MultipleAccordion = (props: Props) => {
                                             display='flex'
                                             alignItems='center'
                                         >
-                                            <Link to={`vegan-cuisine/${item.path}`}>
-                                                {item.title}
-                                            </Link>
+                                            <Link to={`vegan/${item.path}`}>{item.title}</Link>
                                         </Box>
                                     </Box>
                                 </ListItem>

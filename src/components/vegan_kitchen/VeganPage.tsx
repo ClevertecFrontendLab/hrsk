@@ -1,14 +1,15 @@
 import { SimpleGrid } from '@chakra-ui/icons';
 import { Box, Flex, Stack, Tab, TabIndicator, TabList, Tabs, Text, VStack } from '@chakra-ui/react';
-import { Link, useSearchParams } from 'react-router';
+import { useState } from 'react';
+import { Link, useParams } from 'react-router';
 
 import { menuItems } from '~/components/header/hamburger_menu/MenuItems';
-import { JuiciestCard } from '~/components/juiciest/JuiciestCard';
 import { CardWithoutDescription } from '~/components/vegan_kitchen/CardWithoutDescrpition';
+import { recipes } from '~/components/vegan_kitchen/recipes';
 import { VeganCard } from '~/components/vegan_kitchen/VeganCard';
-import { veganCards } from '~/components/vegan_kitchen/VeganCards';
 
 import { Header } from '../common/Header';
+import { DraftCard } from './DraftCard';
 
 type VeganPageProps = {
     isActive: string | undefined;
@@ -16,18 +17,24 @@ type VeganPageProps = {
 };
 
 export const VeganPage = ({ isActive, setActive }: VeganPageProps) => {
-    // const [tabIndex, setTabIndex] = useState(0);
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [, setTabIndex] = useState(0);
+    // const [searchParams, setSearchParams] = useSearchParams();
+
+    const params = useParams();
+    console.log(params);
 
     const tabData = menuItems['Веганская кухня'];
-    const activeTab = searchParams.get('tab') || 'snacks';
-    const activeTabIndex = tabData.findIndex((item) => item.path === activeTab);
+    // const activeTab = searchParams.get('tab') || 'snacks';
+    // const activeTabIndex = tabData.findIndex((item) => item.path === activeTab);
+    const activeTabIndex = tabData.findIndex((item) => item.path === params.tab);
+    const defaultTabIndex = tabData.findIndex((item) => item.path === 'snacks');
 
     const handleTabChange = (index: number) => {
-        const tabPath = tabData[index].path;
-        if (tabPath) {
-            setSearchParams({ tab: tabPath });
-        }
+        setTabIndex(index);
+        // const tabPath = tabData[index].path;
+        // if (tabPath) {
+        //     setSearchParams({ tab: tabPath });
+        // }
         // setActive('snacks');
     };
 
@@ -53,7 +60,12 @@ export const VeganPage = ({ isActive, setActive }: VeganPageProps) => {
                         '            вегетарианскую диету и готовить вкусные вегетарианские блюда.'
                     }
                 />
-                <Tabs paddingBottom='12px' index={activeTabIndex} onChange={handleTabChange}>
+                <Tabs
+                    paddingBottom='12px'
+                    index={activeTabIndex}
+                    onChange={handleTabChange}
+                    defaultIndex={defaultTabIndex}
+                >
                     <TabList
                         borderBottom='1px'
                         borderColor='rgba(0, 0, 0, 0.08)'
@@ -72,12 +84,12 @@ export const VeganPage = ({ isActive, setActive }: VeganPageProps) => {
                                     key={index}
                                     onClick={() => {
                                         setActive(tab.path);
-                                        if (tab.path) {
-                                            setSearchParams({ tab: tab.path });
-                                        }
+                                        // if (tab.path) {
+                                        //     setSearchParams({ tab: tab.path });
+                                        // }
                                     }}
                                 >
-                                    <Link to={`/vegan-cuisine/${tab.path}`}>{tab.title}</Link>
+                                    <Link to={`/vegan/${tab.path}`}>{tab.title}</Link>
                                 </Tab>
                             );
                         })}
@@ -88,23 +100,38 @@ export const VeganPage = ({ isActive, setActive }: VeganPageProps) => {
                     columns={{ sm: 1, md: 2, lg: 1, xl: 2 }}
                     spacing={{ sm: 3, lg: 4, xl: 6 }}
                 >
-                    {veganCards.map((card) => (
-                        <JuiciestCard
-                            key={card.id}
-                            title={card.title}
-                            description={card.description}
-                            imageSrc={card.imageSrc}
-                            altText={card.altText}
-                            badgeText={card.badgeText}
-                            badgeColor={card.badgeColor}
-                            bookmarksCount={card.bookmarksCount}
-                            likesCount={card.likesCount}
-                            spriteId={card.spriteId}
-                            isRecommend={card.isRecommend}
-                            badgeImageSrc={card.badgeImageSrc}
-                            recommendBadgeText={card.recommendBadgeText}
+                    {recipes.map((recipe) => (
+                        <DraftCard
+                            key={recipe.id}
+                            id={recipe.id}
+                            title={recipe.title}
+                            description={recipe.description}
+                            likes={recipe.likes}
+                            bookmarks={recipe.bookmarks}
+                            image={recipe.image}
+                            category={recipe.category[0]}
+                            subcategory={recipe.subcategory[0]}
+                            // spriteId={recipe.category}
+                            badges={recipe.category}
                         />
                     ))}
+                    {/*{veganCards.map((card) => (*/}
+                    {/*    <JuiciestCard*/}
+                    {/*        key={card.id}*/}
+                    {/*        title={card.title}*/}
+                    {/*        description={card.description}*/}
+                    {/*        imageSrc={card.imageSrc}*/}
+                    {/*        altText={card.altText}*/}
+                    {/*        badgeText={card.badgeText}*/}
+                    {/*        badgeColor={card.badgeColor}*/}
+                    {/*        bookmarksCount={card.bookmarksCount}*/}
+                    {/*        likesCount={card.likesCount}*/}
+                    {/*        spriteId={card.spriteId}*/}
+                    {/*        isRecommend={card.isRecommend}*/}
+                    {/*        badgeImageSrc={card.badgeImageSrc}*/}
+                    {/*        recommendBadgeText={card.recommendBadgeText}*/}
+                    {/*    />*/}
+                    {/*))}*/}
                 </SimpleGrid>
                 <Box
                     backgroundColor='lime.400'

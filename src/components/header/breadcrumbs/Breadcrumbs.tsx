@@ -3,6 +3,7 @@ import { BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
 import { Link, useLocation, useSearchParams } from 'react-router';
 
 import { breadcrumbsObj } from '~/components/header/breadcrumbs/BreadcrumbsObj';
+import { recipes } from '~/components/vegan_kitchen/recipes';
 
 type Props = {
     setActive?: (isActive: string | undefined) => void;
@@ -15,12 +16,13 @@ export const Breadcrumbs = ({ setActive }: Props) => {
     const [searchParams] = useSearchParams();
     const tab = searchParams.get('tab');
 
+    const recipe = recipes[Number(paths[2])];
     // if (tab) {
     //     paths.push(tab);
     // }
-    if (!tab && paths[0] === 'vegan-cuisine') {
-        paths.push('snacks');
-    }
+    // if (!tab && paths[0] === 'vegan-cuisine') {
+    //     paths.push('snacks');
+    // }
     if (tab) {
         paths.push(tab);
     }
@@ -62,7 +64,7 @@ export const Breadcrumbs = ({ setActive }: Props) => {
                                 }
                             }}
                         >
-                            {breadcrumbsObj[path] || path}
+                            {breadcrumbsObj[path] || recipe.title}
                         </BreadcrumbLink>
                     </BreadcrumbItem>
                 );
