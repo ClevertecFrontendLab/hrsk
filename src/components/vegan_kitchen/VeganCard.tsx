@@ -1,7 +1,7 @@
 import { CardBody } from '@chakra-ui/icons';
 import { Badge, Card, Heading, HStack, Text } from '@chakra-ui/react';
 
-import { Reactions } from '~/components/latest_recipes/CustomCard';
+import { Reactions } from '~/components/common/Reactions';
 import { SpriteIcon } from '~/components/sprite_icon/SpriteIcon';
 
 type PropsType = {
