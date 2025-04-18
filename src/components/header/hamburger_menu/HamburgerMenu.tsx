@@ -18,6 +18,7 @@ import { Link, useLocation } from 'react-router';
 import { breadcrumbsObj } from '~/components/header/breadcrumbs/BreadcrumbsObj';
 import { Navigation } from '~/components/navigation/Navigation';
 import { SpriteIcon } from '~/components/sprite_icon/SpriteIcon';
+import { recipes } from '~/components/vegan_kitchen/recipes';
 
 type Props = {
     onClose: () => void;
@@ -28,6 +29,8 @@ type Props = {
 export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) => {
     const location = useLocation();
     const paths = location.pathname.split('/').filter(Boolean);
+
+    const recipe = recipes[Number(paths[2])];
 
     const [isOpenAcc, setIsOpen] = useState(false);
 
@@ -86,6 +89,9 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
                                 display={{ sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }}
                                 spacing='8px'
                                 padding='16px 20px 12px '
+                                w='344px'
+                                flexWrap='wrap'
+                                whiteSpace='normal'
                                 separator={<ChevronRightIcon color='black.000' />}
                             >
                                 <BreadcrumbItem>
@@ -99,7 +105,7 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
                                     </BreadcrumbLink>
                                 </BreadcrumbItem>
                                 {paths.map((path, index) => {
-                                    const lastKey = Object.keys(breadcrumbsObj).pop();
+                                    // const lastKey = Object.keys(breadcrumbsObj).pop();
                                     const to = '/' + paths.slice(0, index + 1).join('/');
                                     return (
                                         <BreadcrumbItem>
@@ -109,7 +115,7 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
                                                 fontSize='14px'
                                                 fontWeight={400}
                                             >
-                                                {breadcrumbsObj[path] || breadcrumbsObj[lastKey!]}
+                                                {breadcrumbsObj[path] || recipe.title}
                                             </BreadcrumbLink>
                                         </BreadcrumbItem>
                                     );
