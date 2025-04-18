@@ -77,7 +77,6 @@ export const recipes = [
             {
                 stepNumber: 1,
                 description: 'Отварить картошку и сделать пюре.',
-                image: 'url',
             },
             {
                 stepNumber: 2,
@@ -148,7 +147,7 @@ export const recipes = [
             { title: 'булгур', count: '150', measureUnit: 'г' },
             { title: 'чечевица', count: '100', measureUnit: 'г' },
             { title: 'томатный соус', count: '200', measureUnit: 'мл' },
-            { title: 'лук', count: '1', measureUnit: 'шт.' },
+            { title: 'лук', count: '1', measureUnit: 'шт' },
         ],
         steps: [
             {
