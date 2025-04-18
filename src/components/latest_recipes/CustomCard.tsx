@@ -18,12 +18,12 @@ type PropsType = {
     title: string;
     description: string;
     spritePath?: string;
+    badgeColor?: string;
+    boxSize?: string;
+    viewBox?: string;
     spriteId?: string;
     imageSrc?: string;
     badgeText?: string;
-    badgeColor?: string;
-    boxSize?: string;
-    viewBox: string;
     bookmarksCount?: number;
     likesCount?: number;
     display?: CardProps['display'];
@@ -35,23 +35,20 @@ export const CustomCard = ({
     title,
     description,
     spritePath = '/sprite.svg',
-    spriteId: id,
+    badgeColor,
+    boxSize,
+    viewBox,
+    spriteId,
     imageSrc,
     badgeText,
     bookmarksCount,
     likesCount,
-    display,
-    position,
-    badgeColor,
-    viewBox,
-    boxSize,
-    zIndex,
 }: PropsType) => {
     const [isVisible] = useMediaQuery('(min-width: 769px)');
 
     return (
         <Card
-            position={position}
+            // position={position}
             width={{
                 sm: '158px',
                 md: '158px',
@@ -62,9 +59,9 @@ export const CustomCard = ({
             borderRadius='8px'
             border='1px'
             borderColor='blackAlpha.200'
-            display={display}
-            right={{ md: position && '-110px', lg: position && '-264px' }}
-            zIndex={zIndex}
+            // display={display}
+            // right={{ md: position && '-110px', lg: position && '-264px' }}
+            // zIndex={zIndex}
             _hover={{ boxShadow: 'cardsShadow' }}
         >
             <CardBody padding={0} position='relative'>
@@ -90,7 +87,7 @@ export const CustomCard = ({
                         boxSize={boxSize}
                         viewBox={viewBox}
                         spritePath={spritePath}
-                        spriteId={id}
+                        spriteId={spriteId}
                     />
                     {badgeText}
                 </Badge>
@@ -149,7 +146,7 @@ export const CustomCard = ({
                             boxSize='16px'
                             viewBox='16px 16px'
                             spritePath={spritePath}
-                            spriteId={id}
+                            spriteId={spriteId}
                         />
                         {badgeText}
                     </Badge>
