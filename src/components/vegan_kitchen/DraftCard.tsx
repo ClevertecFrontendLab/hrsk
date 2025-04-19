@@ -1,5 +1,16 @@
 import { CardBody } from '@chakra-ui/icons';
-import { Badge, Box, Button, Card, Heading, HStack, Image, Text } from '@chakra-ui/react';
+import {
+    Badge,
+    Box,
+    Button,
+    Card,
+    CardFooter,
+    Heading,
+    HStack,
+    Image,
+    Stack,
+    Text,
+} from '@chakra-ui/react';
 import { Link } from 'react-router';
 
 import { breadcrumbsObj } from '~/components/header/breadcrumbs/BreadcrumbsObj';
@@ -39,95 +50,113 @@ export const DraftCard = (props: PropsType) => {
     if (badges)
         return (
             <Card
+                direction={{ base: 'column', sm: 'row' }}
+                overflow='hidden'
+                variant='outline'
                 width={{ sm: '328px', md: '356px', lg: '880px', xl: '668px' }}
                 height={{ sm: '128px', lg: '244px' }}
                 borderRadius='8px'
                 border='1px'
                 borderColor='blackAlpha.200'
-                overflow='hidden'
                 display='flex'
                 flexDirection='row'
                 _hover={{ boxShadow: 'cardsShadow' }}
+                position='relative'
             >
-                <Box position='relative'>
-                    <Image
-                        src={image}
-                        alt={title}
-                        objectFit='cover'
-                        maxWidth={{ sm: '158px', lg: '346px' }}
-                        height='100%'
-                    />
-                </Box>
-                <CardBody
-                    padding={{ sm: '8px 8px 4px 8px', lg: '20px 24px 20px 24px' }}
+                <Image
+                    src={image}
+                    alt={title}
+                    objectFit='cover'
+                    maxWidth={{ sm: '158px', lg: '346px' }}
+                    height='100%'
+                />
+                <Box
                     display='flex'
                     flexDirection='column'
-                    justifyContent='space-between'
+                    position='absolute'
+                    left='4px'
+                    top='4px'
+                    gap='4px'
                 >
-                    <HStack display='flex' alignItems='center' justifyContent='space-between'>
-                        <Box display='flex' flexDirection='row' gap='4px'>
-                            {badges.map((badge) => (
-                                <Badge
-                                    display='flex'
-                                    bgColor={badgeColor}
-                                    fontWeight={400}
-                                    fontSize={{ sm: '14px' }}
-                                    minWidth='fit-content'
-                                    height='24px'
-                                    padding='2px 8px'
-                                    borderRadius='4px'
-                                    alignItems='center'
-                                    textTransform='none'
-                                >
-                                    <SpriteIcon
-                                        boxSize='16px'
-                                        viewBox='16px 16px'
-                                        spritePath={spritePath}
-                                        spriteId={breadcrumbsObj[badge]}
-                                    />
-                                    {breadcrumbsObj[badge]}
-                                </Badge>
-                            ))}
-                        </Box>
-                        <Reactions likesCount={likes} bookmarksCount={bookmarks} />
-                    </HStack>
-                    <Box>
-                        <Heading
-                            fontSize={{ sm: '16px', lg: '20px' }}
-                            maxHeight='fit-content'
-                            height='100%'
-                            fontWeight={500}
-                            lineHeight={1.4}
-                            mb={{ sm: '20px', lg: '8px' }}
-                            textAlign='left'
-                            noOfLines={{ sm: 2, lg: 1 }}
+                    {badges.map((badge) => (
+                        <Badge
+                            display='flex'
+                            bgColor={badgeColor}
+                            fontWeight={400}
+                            fontSize={{ sm: '14px' }}
+                            minWidth='fit-content'
+                            height='24px'
+                            padding='2px 8px'
+                            borderRadius='4px'
+                            alignItems='center'
+                            textTransform='none'
                         >
-                            {title}
-                        </Heading>
-                        <Box display={{ sm: 'none', lg: 'flex' }}>
-                            <Text
-                                fontWeight={400}
-                                fontSize='14px'
+                            <SpriteIcon
+                                boxSize='16px'
+                                viewBox='16px 16px'
+                                spritePath={spritePath}
+                                spriteId={breadcrumbsObj[badge]}
+                            />
+                            {breadcrumbsObj[badge]}
+                        </Badge>
+                    ))}
+                </Box>
+
+                <Stack>
+                    <CardBody
+                        padding={{ sm: '8px 8px 4px 8px', lg: '20px 24px 20px 24px' }}
+                        display='flex'
+                        flexDirection='column'
+                        justifyContent='space-between'
+                    >
+                        <HStack
+                            display='flex'
+                            alignItems='center'
+                            justifyContent='flex-end'
+                            position='relative'
+                        >
+                            <Reactions likesCount={likes} bookmarksCount={bookmarks} />
+                        </HStack>
+                        <Box>
+                            <Heading
+                                fontSize={{ sm: '16px', lg: '20px' }}
+                                maxHeight='fit-content'
+                                height='100%'
+                                fontWeight={500}
+                                lineHeight={1.4}
+                                mb={{ sm: '20px', lg: '8px' }}
                                 textAlign='left'
-                                sx={{
-                                    overflow: 'hidden',
-                                    display: '-webkit-box',
-                                    WebkitBoxOrient: 'vertical',
-                                    WebkitLineClamp: 3,
-                                }}
+                                noOfLines={{ sm: 2, lg: 1 }}
                             >
-                                {description}
-                            </Text>
+                                {title}
+                            </Heading>
+                            <Box display={{ sm: 'none', lg: 'flex' }}>
+                                <Text
+                                    fontWeight={400}
+                                    fontSize='14px'
+                                    textAlign='left'
+                                    sx={{
+                                        overflow: 'hidden',
+                                        display: '-webkit-box',
+                                        WebkitBoxOrient: 'vertical',
+                                        WebkitLineClamp: 3,
+                                    }}
+                                >
+                                    {description}
+                                </Text>
+                            </Box>
                         </Box>
-                    </Box>
-                    <Box
+                    </CardBody>
+
+                    <CardFooter
                         display='flex'
                         justifyContent='flex-end'
-                        mt={{ sm: 0, lg: '24px' }}
+                        padding={{ sm: '8px 8px 4px 8px', lg: '20px 24px 20px 24px' }}
+                        // mt={{sm: 0, lg: '24px'}}
                         gap='8px'
                     >
-                        <Box
-                            as='button'
+                        <Button
+                            variant='outlined'
                             width={{ sm: '70px', lg: ' 122px' }}
                             padding={{ sm: '0px 8px', lg: '0px 12px' }}
                             height='32px'
@@ -161,10 +190,11 @@ export const DraftCard = (props: PropsType) => {
                                 />
                             </svg>
                             Сохранить
-                        </Box>
+                        </Button>
                         <Button
                             as={Link}
                             to={`/${category}/${subcategory}/${id}`}
+                            variant='contained'
                             color='white'
                             backgroundColor='black.000'
                             width={{ sm: '70px', lg: ' 87px' }}
@@ -175,8 +205,8 @@ export const DraftCard = (props: PropsType) => {
                         >
                             Готовить
                         </Button>
-                    </Box>
-                </CardBody>
+                    </CardFooter>
+                </Stack>
             </Card>
         );
 };

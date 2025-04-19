@@ -206,7 +206,7 @@ export const Deserts = (props: Props) => {
                 flexDirection={{ sm: 'column', md: 'row' }}
                 spacing={{ md: 3, lg: 4, xl: 6 }}
                 width='100%'
-                gap={{ sm: '12px' }}
+                gap={{ sm: '12px', lg: '16px', xl: '24px' }}
             >
                 <VeganCard
                     spriteId='Вторые блюда'
