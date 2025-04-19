@@ -171,6 +171,7 @@ export const DraftCard = (props: PropsType) => {
                             padding={{ sm: '0px 8px', lg: '0px 12px' }}
                             fontSize={{ sm: '12px', lg: '14px' }}
                             height={{ sm: '24px', lg: '32px' }}
+                            data-test-id={`card-link-${id}`}
                         >
                             Готовить
                         </Button>

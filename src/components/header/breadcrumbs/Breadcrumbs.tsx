@@ -29,6 +29,7 @@ export const Breadcrumbs = ({ setActive }: Props) => {
 
     return (
         <Breadcrumb
+            data-test-id='breadcrumbs'
             display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
             alignItems='center'
             pl='128px'

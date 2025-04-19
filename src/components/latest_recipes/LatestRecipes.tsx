@@ -48,6 +48,7 @@ export const LatestRecipes = () => {
                     color='white'
                     display={{ sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
                     alignItems='center'
+                    data-test-id='carousel-back'
                     ref={prevRef}
                 >
                     <svg
@@ -82,6 +83,7 @@ export const LatestRecipes = () => {
                     // marginBottom='35px'
                     color='white'
                     ref={nextRef}
+                    data-test-id='carousel-forward'
                 >
                     <svg
                         width='22'
@@ -107,6 +109,7 @@ export const LatestRecipes = () => {
                 position='relative'
             >
                 <Swiper
+                    data-test-id='carousel'
                     modules={[Navigation]}
                     allowTouchMove={true}
                     simulateTouch={true}
@@ -147,7 +150,7 @@ export const LatestRecipes = () => {
                     }}
                 >
                     {LatestRecipesCards.map((card, index) => (
-                        <SwiperSlide>
+                        <SwiperSlide data-test-id={`carousel-card-${index}`}>
                             <CustomCard
                                 key={card.id}
                                 title={card.title}

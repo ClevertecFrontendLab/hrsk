@@ -21,6 +21,7 @@ type PropsType = {
     recommendBadgeColor?: string;
     recommendBadgeText?: string;
     badgeImageSrc?: string;
+    index: string | number;
 };
 
 export const JuiciestCard = (props: PropsType) => {
@@ -41,10 +42,12 @@ export const JuiciestCard = (props: PropsType) => {
         recommendBadgeColor = 'lime.150',
         recommendBadgeText,
         badgeImageSrc,
+        index,
     } = props;
 
     return (
         <Card
+            data-test-id={`food-card-${index}`}
             width={{ sm: '328px', md: '356px', lg: '880px', xl: '668px' }}
             height={{ sm: '128px', lg: '244px' }}
             borderRadius='8px'

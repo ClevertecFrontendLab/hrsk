@@ -78,6 +78,7 @@ export const VeganPage = ({ isActive, setActive }: VeganPageProps) => {
                             return (
                                 <Tab
                                     width='fit-content'
+                                    data-test-id={`tab-${tab.path}-${index}`}
                                     _selected={isActiveTab ? { color: 'lime.600' } : {}}
                                     fontSize='16px'
                                     fontWeight={500}

@@ -64,7 +64,7 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
             //     },
             // }}
         >
-            <Drawer placement='right' onClose={onClose} isOpen={isOpen}>
+            <Drawer placement='right' onClose={onClose} isOpen={isOpen} data-test-id='nav'>
                 <DrawerOverlay
                     zIndex={1100}
                     mt='64px'

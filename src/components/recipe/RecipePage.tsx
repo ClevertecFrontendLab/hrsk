@@ -339,8 +339,8 @@ export const RecipePage = () => {
                                     >
                                         <NumberInputField />
                                         <NumberInputStepper>
-                                            <NumberIncrementStepper />
-                                            <NumberDecrementStepper />
+                                            <NumberIncrementStepper data-test-id='increment-stepper' />
+                                            <NumberDecrementStepper data-test-id='decrement-stepper' />
                                         </NumberInputStepper>
                                     </NumberInput>
                                 </Th>
@@ -357,7 +357,11 @@ export const RecipePage = () => {
                                         _even={{ bg: 'white' }}
                                     >
                                         <Td height='52px'>{item.title}</Td>
-                                        <Td isNumeric height='52px'>
+                                        <Td
+                                            isNumeric
+                                            height='52px'
+                                            data-test-id={`ingredient-quantity-${index}`}
+                                        >
                                             {ingredientAmount > 0 && ingredientAmount}{' '}
                                             {item.measureUnit}
                                         </Td>

@@ -71,7 +71,8 @@ export const MultipleAccordion = (props: Props) => {
                     position='relative'
                     display='flex'
                     alignItems='center'
-                    data-test-id={category === 'Веганская кухня' ? 'vegan' : ''}
+                    // data-test-id={`${category}`}
+                    data-test-id={category === 'Веганская кухня' ? 'vegan-cuisine' : ''}
                     as={Link}
                     to={category === 'Веганская кухня' ? 'vegan' : ''}
                     // padding={0}
@@ -116,6 +117,7 @@ export const MultipleAccordion = (props: Props) => {
                                     width='100%'
                                     padding='6px 8px 6px 52px'
                                     _hover={{ bgColor: 'lime.50' }}
+                                    data-test-id={`tab-${item.path}-active`}
                                 >
                                     <Box
                                         position='relative'
@@ -129,7 +131,7 @@ export const MultipleAccordion = (props: Props) => {
                                         key={index}
                                         cursor='pointer'
                                         onClick={() => {
-                                            setActive(item.path);
+                                            setActive(item.subcategory);
                                             // if (item.path) {
                                             //     setSearchParams(item.path);
                                             // }

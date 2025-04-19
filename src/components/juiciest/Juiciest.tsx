@@ -72,8 +72,10 @@ export const Juiciest = () => {
                 spacing={{ sm: 3, lg: 4, xl: 6 }}
                 paddingBottom={{ sm: '12px', md: '12px' }}
             >
-                {juiciestCards.slice(0, 4).map((card) => (
+                {juiciestCards.slice(0, 4).map((card, index) => (
                     <JuiciestCard
+                        key={card.id}
+                        index={index}
                         title={card.title}
                         description={card.description}
                         imageSrc={card.imageSrc}

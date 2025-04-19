@@ -100,6 +100,7 @@ export const Content = () => (
                 </Box>
                 <InputGroup>
                     <Input
+                        data-test-id='search-input'
                         placeholder='Название или ингредиент...'
                         border='1px solid rgba(0, 0, 0, 0.48)'
                         borderRadius='6px'
@@ -115,7 +116,12 @@ export const Content = () => (
                         width={{ sm: '32px', lg: '48px' }}
                         height={{ sm: '32px', lg: '48px' }}
                     >
-                        <IconButton aria-label='Search database' bg='none' icon={<SearchIcon />} />
+                        <IconButton
+                            data-test-id='search-button'
+                            aria-label='Search database'
+                            bg='none'
+                            icon={<SearchIcon />}
+                        />
                     </InputRightElement>
                 </InputGroup>
             </HStack>
