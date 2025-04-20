@@ -247,7 +247,8 @@ export const RecipePage = () => {
                                 title: key,
                                 unit: '',
                             };
-                            const totalNutrition = value * portionCount;
+                            const totalNutrition = (value / recipe.portions) * portionCount;
+                            // const unitPerPortion = Number(unit) / recipe.portions;
 
                             return (
                                 <Card
@@ -348,7 +349,8 @@ export const RecipePage = () => {
                         </Thead>
                         <Tbody color='blackAlpha.900'>
                             {recipe.ingredients.map((item, index) => {
-                                const ingredientAmount = Number(item.count) * portionCount;
+                                const ingredientAmount =
+                                    (Number(item.count) / recipe.portions) * portionCount;
 
                                 return (
                                     <Tr
