@@ -1,3 +1,11 @@
+import quinoa_veggies from '~/assets/the_juiciest/Crispy-Quinoa.jpg';
+import garlic_potatoes from '~/assets/the_juiciest/garlic_potatoes.png';
+import lavash from '~/assets/the_juiciest/lavash.png';
+import bulgur_balls from '~/assets/the_juiciest/meatballs.png';
+import potato from '~/assets/the_juiciest/potato.png';
+import potato_rolls from '~/assets/the_juiciest/potato_rolls.png';
+import puri from '~/assets/the_juiciest/puri.png';
+import tom_yum from '~/assets/the_juiciest/tom_yum.png';
 import { Recipe } from '~/types';
 
 export const mocRecipes: Recipe[] = [
@@ -8,7 +16,7 @@ export const mocRecipes: Recipe[] = [
             'Картошка, тушенная с болгарским перцем, фасолью, морковью и луком, - вариант сытного блюда на каждый день. Фасоль в данном случае заменяет мясо, делая рагу сытным и питательным. Чтобы сократить время приготовления, возьмём консервированную фасоль. Блюдо хоть и простое, но в полной мере наполнено ароматами и имеет выразительный вкус за счёт добавления томатной пасты.',
         category: ['vegan', 'second-dish'],
         subcategory: ['snacks', 'vegetables'],
-        image: 'путь к изображению в вашем проекте',
+        image: potato,
         bookmarks: 85,
         likes: 152,
         date: '2025-02-28T00:00:00Z',
@@ -84,7 +92,7 @@ export const mocRecipes: Recipe[] = [
             'Рекомендую всем приготовить постное блюдо из картофеля и грибов. Готовится это блюдо без яиц, без мяса и без сыра, из самых простых ингредиентов, а получается очень вкусно и сытно. Постный рецепт картофельных рулетиков с грибами, в томатном соусе, - на обед, ужин и даже на праздничный стол!',
         category: ['vegan', 'snacks'],
         subcategory: ['snacks', 'warm-snacks'],
-        image: 'путь к изображению в вашем проекте',
+        image: potato_rolls,
         bookmarks: 85,
         likes: 1152,
         date: '2024-02-20T00:00:00Z',
@@ -144,7 +152,7 @@ export const mocRecipes: Recipe[] = [
             'Большое, сытное блюдо для ценителей блюд без мяса! Такая лазанья готовится с овощным соусом и соусом бешамель, а вместо листов для лазаньи используется тонкий лаваш.',
         category: ['vegan', 'second-dish', 'national'],
         subcategory: ['second-dish', 'vegetables', 'italian', 'snacks'],
-        image: 'путь к изображению в вашем проекте',
+        image: lavash,
         bookmarks: 85,
         likes: 152,
         date: '2023-01-25T00:00:00Z',
@@ -203,7 +211,7 @@ export const mocRecipes: Recipe[] = [
             'Тефтели из булгура и чечевицы – яркие и питательные, отлично подходят для постного и вегетарианского меню. Тефтели получаются нежными, а также сочными и ароматными благодаря использованию томатного соуса и душистых пряностей.',
         category: ['vegan', 'second-dish'],
         subcategory: ['second-dish', 'poultry-dish'],
-        image: 'путь к изображению в вашем проекте',
+        image: bulgur_balls,
         bookmarks: 85,
         likes: 152,
         date: '2023-02-15T00:00:00Z',
@@ -262,7 +270,7 @@ export const mocRecipes: Recipe[] = [
             'Такая картошечка украсит любой семейный обед! Все будут в полном восторге, очень вкусно! Аромат чеснока, хрустящая корочка на картошечке - просто объедение! Отличная идея для обеда или ужина, готовится просто!',
         category: ['vegan', 'second-dish'],
         subcategory: ['side-dishes', 'second-dish', 'vegetables'],
-        image: 'путь к изображению в вашем проекте',
+        image: garlic_potatoes,
         bookmarks: 124,
         likes: 342,
         date: '2024-03-01T00:00:00Z',
@@ -322,7 +330,7 @@ export const mocRecipes: Recipe[] = [
             'Капустные котлеты по этому рецепту получаются необычайно пышными и невероятно вкусными. Мягкий вкус и лёгкая пряная нотка наверняка помогут сделать эти чудесные котлеты из капусты одним из ваших любимых овощных блюд.',
         category: ['vegan'],
         subcategory: ['second-dish', 'snacks'],
-        image: 'путь к изображению в вашем проекте',
+        image: puri,
         bookmarks: 2,
         likes: 1,
         date: '2024-02-05T00:00:00Z',
@@ -375,7 +383,7 @@ export const mocRecipes: Recipe[] = [
         description: 'Сытное рагу из сезонных овощей, приправленное травами.',
         category: ['vegan', 'second-dish'],
         subcategory: ['side-dishes', 'vegetables', 'snacks'],
-        image: 'путь к изображению в вашем проекте',
+        image: tom_yum,
         bookmarks: 8,
         likes: 60,
         date: '2023-03-12T00:00:00Z',
@@ -438,7 +446,7 @@ export const mocRecipes: Recipe[] = [
         description: 'Ароматная лапша с курицей и шафраном, идеальное сочетание для сытного обеда.',
         category: ['second-dish'],
         subcategory: ['poultry-dish'],
-        image: 'путь к изображению в вашем проекте',
+        image: puri,
         bookmarks: 258,
         likes: 1342,
         date: '2024-03-08T00:00:00Z',
@@ -496,7 +504,7 @@ export const mocRecipes: Recipe[] = [
         description: 'Салат с обжаренными на гриле овощами и легкой заправкой.',
         category: ['salads'],
         subcategory: ['warm-salads'],
-        image: 'путь к изображению в вашем проекте',
+        image: tom_yum,
         bookmarks: 10,
         likes: 80,
         date: '2023-03-20T00:00:00Z',
@@ -544,78 +552,31 @@ export const mocRecipes: Recipe[] = [
     },
     {
         id: '9',
-        title: 'Creamy Avocado Pasta',
-        description:
-            'A quick and creamy pasta dish made with fresh avocado and lemon juice — perfect for a light dinner.',
-        category: ['vegan', 'main-courses'],
-        subcategory: ['courses', 'vegetables'],
-        image: 'path/to/your/image.jpg',
-        bookmarks: 5,
-        likes: 42,
-        date: '2025-04-16T00:00:00Z',
-        time: '20 minutes',
+        title: 'Киноа с печёными овощами',
+        description: 'Полезное блюдо с киноа, запечёнными овощами и ароматной зеленью.',
+        category: ['vegan'],
+        subcategory: ['vegetarian'],
+        image: quinoa_veggies,
+        bookmarks: 25,
+        likes: 120,
+        date: '2023-05-10T00:00:00Z',
+        time: '35 минут',
         nutritionValue: {
-            calories: 420,
-            proteins: 9,
-            fats: 18,
-            carbohydrates: 52,
+            calories: 230,
+            proteins: 8,
+            fats: 7,
+            carbohydrates: 32,
         },
         ingredients: [
-            {
-                title: 'spaghetti',
-                count: '200',
-                measureUnit: 'g',
-            },
-            {
-                title: 'ripe avocado',
-                count: '1',
-                measureUnit: 'pc',
-            },
-            {
-                title: 'garlic clove',
-                count: '1',
-                measureUnit: 'pc',
-            },
-            {
-                title: 'lemon juice',
-                count: '1',
-                measureUnit: 'tbsp',
-            },
-            {
-                title: 'olive oil',
-                count: '1',
-                measureUnit: 'tbsp',
-            },
-            {
-                title: 'salt',
-                count: '0',
-                measureUnit: 'to taste',
-            },
-            {
-                title: 'black pepper',
-                count: '0',
-                measureUnit: 'to taste',
-            },
+            { title: 'киноа', count: '100', measureUnit: 'г' },
+            { title: 'кабачок', count: '1', measureUnit: 'шт.' },
+            { title: 'помидоры черри', count: '10', measureUnit: 'шт.' },
+            { title: 'оливковое масло', count: '0', measureUnit: 'по вкусу' },
         ],
         steps: [
-            {
-                stepNumber: 1,
-                description:
-                    'Boil the spaghetti until al dente. Reserve 1/4 cup of pasta water before draining.',
-                image: 'url',
-            },
-            {
-                stepNumber: 2,
-                description:
-                    'Blend avocado, garlic, lemon juice, olive oil, salt, and pepper until creamy.',
-                image: 'url',
-            },
-            {
-                stepNumber: 3,
-                description:
-                    'Mix the pasta with the avocado sauce, adding a bit of pasta water for creaminess. Serve immediately.',
-                image: 'url',
-            },
+            { stepNumber: 1, description: 'Отварить киноа до готовности.', image: 'url' },
+            { stepNumber: 2, description: 'Запечь овощи в духовке.', image: 'url' },
+            { stepNumber: 3, description: 'Смешать и подать с зеленью.', image: 'url' },
         ],
     },
 ];

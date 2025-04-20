@@ -18,7 +18,7 @@ type PropsType = {
     title: string;
     description: string;
     spritePath?: string;
-    badgeColor?: string;
+    // badgeColor?: string;
     boxSize?: string;
     viewBox?: string;
     spriteId?: string;
@@ -35,7 +35,7 @@ export const CustomCard = ({
     title,
     description,
     spritePath = '/sprite.svg',
-    badgeColor,
+    // badgeColor,
     boxSize,
     viewBox,
     spriteId,
@@ -58,6 +58,7 @@ export const CustomCard = ({
             height={{ sm: '220px', lg: '402px', xl: '414px' }}
             borderRadius='8px'
             border='1px'
+            overflow='hidden'
             borderColor='blackAlpha.200'
             // display={display}
             // right={{ md: position && '-110px', lg: position && '-264px' }}
@@ -69,7 +70,7 @@ export const CustomCard = ({
                     display='flex'
                     visibility={isVisible ? 'hidden' : 'visible'}
                     flexDirection='row'
-                    bgColor={badgeColor}
+                    bgColor='lime.50'
                     maxWidth='fit-content'
                     height='24px'
                     padding='2px 8px'
@@ -91,7 +92,7 @@ export const CustomCard = ({
                     />
                     {badgeText}
                 </Badge>
-                <Image src={imageSrc} alt='Солянка с грибами' objectFit='cover' />
+                <Image src={imageSrc} alt={title} objectFit='cover' />
             </CardBody>
             <CardFooter
                 display='flex'
@@ -141,6 +142,9 @@ export const CustomCard = ({
                         padding='2px 8px'
                         borderRadius='4px'
                         alignItems='center'
+                        fontWeight={400}
+                        fontSize='14px'
+                        textTransform='none'
                     >
                         <SpriteIcon
                             boxSize='16px'

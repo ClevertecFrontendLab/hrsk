@@ -5,8 +5,9 @@ import { useRef } from 'react';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { breadcrumbsObj } from '~/components/header/breadcrumbs/BreadcrumbsObj';
 import { CustomCard } from '~/components/latest_recipes/CustomCard';
-import { LatestRecipesCards } from '~/components/latest_recipes/LatestCards';
+import { mocRecipes } from '~/store/moc-recipes';
 
 export const LatestRecipes = () => {
     const prevRef = useRef(null);
@@ -149,32 +150,34 @@ export const LatestRecipes = () => {
                         }
                     }}
                 >
-                    {LatestRecipesCards.map((card, index) => (
-                        <SwiperSlide data-test-id={`carousel-card-${index}`}>
-                            <CustomCard
-                                key={card.id}
-                                title={card.title}
-                                description={card.description}
-                                imageSrc={card.image}
-                                badgeText={card.badge}
-                                badgeColor={card.badgeColor}
-                                bookmarksCount={card.bookmarksCount}
-                                likesCount={card.likesCount}
-                                viewBox='4'
-                                boxSize='16px'
-                                zIndex={card.zIndex}
-                                display={card.display}
-                                spriteId={card.spriteId}
-                                position={{
-                                    md:
-                                        index === LatestRecipesCards.length - 1
-                                            ? 'absolute'
-                                            : undefined,
-                                    // lg: index === LatestRecipesCards.length - 2 ? 'absolute' : undefined,
-                                }}
-                            />
-                        </SwiperSlide>
-                    ))}
+                    {mocRecipes
+                        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+                        .map((card, index) => (
+                            <SwiperSlide data-test-id={`carousel-card-${index}`}>
+                                <CustomCard
+                                    key={card.id}
+                                    title={card.title}
+                                    description={card.description}
+                                    imageSrc={card.image}
+                                    badgeText={breadcrumbsObj[card.category[0]]}
+                                    // badgeColor={card.badgeColor}
+                                    bookmarksCount={card.bookmarks}
+                                    likesCount={card.likes}
+                                    viewBox='4'
+                                    boxSize='16px'
+                                    // zIndex={card.zIndex}
+                                    // display={card.display}
+                                    spriteId={breadcrumbsObj[card.category[0]]}
+                                    // position={{
+                                    //     md:
+                                    //         index === LatestRecipesCards.length - 1
+                                    //             ? 'absolute'
+                                    //             : undefined,
+                                    //     lg: index === LatestRecipesCards.length - 2 ? 'absolute' : undefined,
+                                    // }}
+                                />
+                            </SwiperSlide>
+                        ))}
                 </Swiper>
             </HStack>
         </Flex>

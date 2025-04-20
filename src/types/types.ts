@@ -16,16 +16,16 @@ export type RecipeStep = {
 };
 
 export type Recipe = {
-    id: Nullable<string>;
-    title: Nullable<string>;
-    description: Nullable<string>;
+    id: string;
+    title: string;
+    description: string;
     category: string[];
     subcategory: string[];
-    image: Nullable<string>;
-    likes: Nullable<number>;
-    bookmarks: Nullable<number>;
+    image: string;
+    likes: number;
+    bookmarks: number;
     time: Nullable<string>;
-    date: Nullable<string>;
+    date: string;
     portions?: Nullable<number>;
     nutritionValue: NutritionValue;
     ingredients: Ingredient[];
