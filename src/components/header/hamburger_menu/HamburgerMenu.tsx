@@ -7,7 +7,6 @@ import {
     DrawerBody,
     DrawerContent,
     DrawerOverlay,
-    Flex,
     Stack,
     Text,
     VStack,
@@ -35,36 +34,8 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
     const [isOpenAcc, setIsOpen] = useState(false);
 
     return (
-        <Flex
-            direction='column'
-            height={{ sm: '712px', md: '868px' }}
-            width={{ sm: '344px', lg: '256px' }}
-            overflowY={isOpenAcc ? 'scroll' : 'hidden'}
-            alignItems='center'
-            boxShadow={
-                isOpenAcc
-                    ? '0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-                    : 'none'
-            }
-            borderRadius={isOpenAcc ? '0 0 12px 12px' : 0}
-            overflowX='hidden'
-            // sx={{
-            //     '&::-webkit-scrollbar': {
-            //         width: '8px',
-            //         height: '854px',
-            //     },
-            //     '&::-webkit-scrollbar-thumb': {
-            //         borderRadius: 'full',
-            //         background: 'blackAlpha.300',
-            //     },
-            //     '&::-webkit-scrollbar-track': {
-            //         background: 'transparent',
-            //         backgroundColor: 'blackAlpha.50',
-            //         borderRadius: '8px',
-            //     },
-            // }}
-        >
-            <Drawer placement='right' onClose={onClose} isOpen={isOpen} data-test-id='nav'>
+        <Box data-test-id='nav'>
+            <Drawer placement='right' onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay
                     zIndex={1100}
                     mt='64px'
@@ -182,16 +153,6 @@ export const HamburgerMenu = ({ onClose, isOpen, isActive, setActive }: Props) =
                     </Stack>
                 </DrawerContent>
             </Drawer>
-            <Box display={{ sm: 'none', lg: 'block' }} height={isOpenAcc ? '872px' : '644px'}>
-                <Navigation
-                    isOpen={isOpenAcc}
-                    setIsOpen={setIsOpen}
-                    isActive={isActive}
-                    setActive={setActive}
-                />
-            </Box>
-
-            {/*<Footer />*/}
-        </Flex>
+        </Box>
     );
 };

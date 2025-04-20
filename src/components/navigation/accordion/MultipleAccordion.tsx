@@ -131,7 +131,7 @@ export const MultipleAccordion = (props: Props) => {
                                         key={index}
                                         cursor='pointer'
                                         onClick={() => {
-                                            setActive(item.subcategory);
+                                            setActive(item.path);
                                             // if (item.path) {
                                             //     setSearchParams(item.path);
                                             // }

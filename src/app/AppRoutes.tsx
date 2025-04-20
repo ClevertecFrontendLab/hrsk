@@ -17,21 +17,8 @@ export const AppRoutes = ({ isActive, setActive }: Props) => {
     return (
         <Routes>
             <Route path='/' element={<Content />} />
-            <Route path='/juiciest' element={<JuiciestPage />} />
-            {/*<Route>*/}
-            {/*    <Route*/}
-            {/*        path={`${category}`}*/}
-            {/*        element={<VeganPage isActive={isActive} setActive={setActive} />}*/}
-            {/*    >*/}
-            {/*        {menuItems['Веганская кухня'].map((item) => (*/}
-            {/*            <Route*/}
-            {/*                path={`${category}/${item.path}`}*/}
-            {/*                element={<VeganPage isActive={isActive} setActive={setActive} />}*/}
-            {/*            />*/}
-            {/*        ))}*/}
-            {/*        /!*<Route path='settings' element={<Settings/>}/>*!/*/}
-            {/*    </Route>*/}
-            {/*</Route>*/}
+            <Route path={`:${category}`} element={<JuiciestPage />} />
+
             <Route>
                 <Route path={`:${category}`} element={<Navigate to='snacks' replace />} />
                 <Route

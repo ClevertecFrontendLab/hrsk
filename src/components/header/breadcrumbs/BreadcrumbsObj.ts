@@ -1,6 +1,6 @@
 export const breadcrumbsObj: Record<string, string> = {
     '/': 'Главная',
-    juiciest: 'Самое сочное',
+    'the-juiciest': 'Самое сочное',
     vegan: 'Веганская кухня',
     snacks: 'Закуски',
     courses: 'Первые блюда',

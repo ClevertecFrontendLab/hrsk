@@ -1,5 +1,5 @@
 import { SimpleGrid } from '@chakra-ui/icons';
-import { Box, Flex, Text, useMediaQuery } from '@chakra-ui/react';
+import { Button, Flex, Text, useMediaQuery } from '@chakra-ui/react';
 import { Link } from 'react-router';
 
 import { juiciestCards } from '~/components/juiciest/Cards';
@@ -33,10 +33,11 @@ export const Juiciest = () => {
                 >
                     Самое сочное
                 </Text>
-                <Box
+                <Button
+                    variant='contained'
                     backgroundColor='lime.400'
                     as={Link}
-                    to='/juiciest'
+                    to='/the-juiciest'
                     borderRadius='6px'
                     padding={{ lg: '0px 24px' }}
                     width={{ lg: '197px' }}
@@ -65,7 +66,7 @@ export const Juiciest = () => {
                             fill='black'
                         />
                     </svg>
-                </Box>
+                </Button>
             </Flex>
             <SimpleGrid
                 columns={{ sm: 1, md: 2, lg: 1, xl: 2 }}
@@ -88,10 +89,11 @@ export const Juiciest = () => {
                     />
                 ))}
             </SimpleGrid>
-            <Box
+            <Button
+                variant='contained'
                 backgroundColor='lime.400'
                 as={Link}
-                to='/juiciest'
+                to='/the-juiciest'
                 borderRadius='6px'
                 padding={{ sm: '0 16px' }}
                 width={{ sm: '167px' }}
@@ -120,7 +122,7 @@ export const Juiciest = () => {
                         fill='black'
                     />
                 </svg>
-            </Box>
+            </Button>
         </Flex>
     );
 };

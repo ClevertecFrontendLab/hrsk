@@ -1,4 +1,5 @@
 import { Box, Flex, HStack, Text, useMediaQuery } from '@chakra-ui/react';
+import { useState } from 'react';
 
 import { Breadcrumbs } from '~/components/header/breadcrumbs/Breadcrumbs';
 import { HamburgerButton } from '~/components/header/hamburger_menu/HamburgerButton';
@@ -13,8 +14,10 @@ type Props = {
 };
 
 export const Header = ({ onOpen, isOpen, onClose }: Props) => {
-    const [isVisible] = useMediaQuery('(min-width: 769px)');
+    const [isVisible] = useMediaQuery('(max-width: 769px)');
+    console.log(isVisible);
 
+    const [isLogged, setIsLogged] = useState<boolean>(true);
     console.log(isOpen);
 
     return (
@@ -41,14 +44,54 @@ export const Header = ({ onOpen, isOpen, onClose }: Props) => {
         >
             <HeaderLogo />
             <Breadcrumbs />
-            <ProfileInfo />
+            {isLogged ? (
+                <ProfileInfo />
+            ) : (
+                <Box
+                    as='button'
+                    position='absolute'
+                    visibility={isOpen ? 'hidden' : 'visible'}
+                    top={{ sm: '16px', lg: '24px' }}
+                    right={{ sm: '68px', lg: '58px' }}
+                    onClick={() => setIsLogged(true)}
+                    width='87px'
+                    height='32px'
+                    padding='0 12px'
+                    borderRadius='6px'
+                    fontWeight={600}
+                    fontSize='14px'
+                    display='flex'
+                    gap='8px'
+                    alignItems='center'
+                >
+                    Log in
+                    <svg
+                        width='14'
+                        height='14'
+                        viewBox='0 0 14 14'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                    >
+                        <path
+                            d='M7.58331 9.33268L10.5 6.99935L7.58331 4.66602V6.41602H2.33331V7.58268H7.58331V9.33268Z'
+                            fill='black'
+                        />
+                        <path
+                            d='M11.6667 1.75H6.41667C5.77325 1.75 5.25 2.27325 5.25 2.91667V5.25H6.41667V2.91667H11.6667V11.0833H6.41667V8.75H5.25V11.0833C5.25 11.7267 5.77325 12.25 6.41667 12.25H11.6667C12.3101 12.25 12.8333 11.7267 12.8333 11.0833V2.91667C12.8333 2.27325 12.3101 1.75 11.6667 1.75Z'
+                            fill='black'
+                        />
+                    </svg>
+                </Box>
+            )}
+            {/*<ProfileInfo />*/}
             {!isOpen && (
                 <HStack
                     position='absolute'
+                    display={isLogged && isVisible ? 'flex' : 'none'}
                     right='68px'
                     maxWidth='203px'
                     maxHeight='24px'
-                    visibility={isVisible ? 'hidden' : 'visible'}
+                    visibility={isLogged && isVisible ? 'visible' : 'hidden'}
                     alignItems='center'
                     justifyContent='center'
                     px={{ sm: 2, md: 4 }}

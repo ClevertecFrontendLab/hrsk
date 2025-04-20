@@ -7,6 +7,7 @@ import { Footer } from '~/components/footer/Footer';
 import { MainFooter } from '~/components/footer/MainFooter';
 import { HamburgerMenu } from '~/components/header/hamburger_menu/HamburgerMenu';
 import { Header } from '~/components/header/Header';
+import { Sidebar } from '~/components/sidebar/Sidebar';
 import { WriteRecipe } from '~/components/write_recipe/WriteRecipe';
 
 export const Main = () => {
@@ -33,6 +34,7 @@ export const Main = () => {
                 borderRight='1px'
                 borderColor='blackAlpha.400'
             >
+                <Sidebar isActive={isActive} setActive={setActive} />
                 <HamburgerMenu
                     isActive={isActive}
                     setActive={setActive}
