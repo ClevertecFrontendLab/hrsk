@@ -17,7 +17,7 @@ export const AppRoutes = ({ isActive, setActive }: Props) => {
     return (
         <Routes>
             <Route path='/' element={<Content />} />
-            <Route path={`:${category}`} element={<JuiciestPage />} />
+            <Route path='/the-juiciest' element={<JuiciestPage />} />
 
             <Route>
                 <Route path={`:${category}`} element={<Navigate to='snacks' replace />} />
