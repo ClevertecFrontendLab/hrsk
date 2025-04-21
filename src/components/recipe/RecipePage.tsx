@@ -1,4 +1,4 @@
-import { NumberIncrementStepper, NumberInputStepper } from '@chakra-ui/icons';
+import { NumberIncrementStepper, NumberInputStepper, Wrap } from '@chakra-ui/icons';
 import {
     Avatar,
     Badge,
@@ -25,12 +25,12 @@ import {
     Thead,
     Tr,
     VStack,
+    WrapItem,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 
 import sergey from '~/assets/avatars/avatar-sergey.png';
-import lapshaChiken from '~/assets/recipe-images/lapsha-chiken.png';
 import { Reactions } from '~/components/common/Reactions';
 import { breadcrumbsObj } from '~/components/header/breadcrumbs/BreadcrumbsObj';
 import { LatestRecipes } from '~/components/latest_recipes/LatestRecipes';
@@ -71,51 +71,68 @@ export const RecipePage = () => {
             alignItems='center'
             width={{ sm: '360px', md: '768px', lg: '880px', xl: '1360px' }}
             height='100%'
-            marginTop='56px'
+            marginTop={{ sm: 0, lg: '56px' }}
         >
             <Flex
                 marginBottom='32px'
                 flexDirection='column'
                 alignItems='center'
-                gap='40px'
+                gap={{ sm: '24px', md: '40px' }}
+                width={{ sm: '328px', md: '728px', lg: '880px', xl: '1360px' }}
                 // maxWidth='783px'
             >
-                <HStack gap={6} width='100%'>
-                    <Image src={lapshaChiken} />
-                    <Flex height='410px' width='100%' flexDirection='column' position='relative'>
+                <Flex
+                    flexDirection={{ sm: 'column', md: 'row' }}
+                    gap={{ sm: 4, md: 4, lg: 6 }}
+                    width='100%'
+                    height={{ sm: '584px', md: '224px', lg: '410px' }}
+                >
+                    <Image
+                        borderRadius='8px'
+                        height={{ sm: '224px', md: '234px', lg: '410px' }}
+                        width={{ sm: '328px', md: '232px', lg: '353px', xl: '783px' }}
+                        src={recipe.image}
+                    />
+                    <Flex
+                        height={{ sm: '344px', md: '224px', lg: '410px' }}
+                        width='100%'
+                        flexDirection='column'
+                        position='relative'
+                    >
                         <HStack
                             display='flex'
-                            width='100%'
-                            height='32px'
-                            alignItems='center'
+                            height={{ sm: '88px', md: '56px', xl: '32px' }}
+                            alignItems={{ sm: 'flex-start', md: 'center' }}
                             justifyContent='space-between'
                         >
-                            <Box display='flex' flexDirection='row' gap='16px'>
+                            <Wrap display='flex' gap={{ sm: '8px', md: '16px' }}>
                                 {recipe.category.map((badge) => (
-                                    <Badge
-                                        display='flex'
-                                        flexDirection='row'
-                                        bgColor='lime.50'
-                                        maxWidth='146px'
-                                        height='24px'
-                                        padding='2px 8px'
-                                        borderRadius='4px'
-                                        alignItems='center'
-                                        fontSize={{ sm: '14px' }}
-                                        fontWeight={{ sm: 400 }}
-                                        gap='8px'
-                                        textTransform='none'
-                                    >
-                                        <SpriteIcon
-                                            boxSize='16px'
-                                            viewBox='16px 16px'
-                                            spritePath='/sprite.svg'
-                                            spriteId={breadcrumbsObj[badge]}
-                                        />
-                                        {breadcrumbsObj[badge]}
-                                    </Badge>
+                                    <WrapItem>
+                                        <Badge
+                                            display='flex'
+                                            flexDirection='row'
+                                            bgColor='lime.50'
+                                            maxWidth='146px'
+                                            height='24px'
+                                            padding='2px 8px'
+                                            borderRadius='4px'
+                                            alignItems='center'
+                                            fontSize={{ sm: '14px' }}
+                                            fontWeight={{ sm: 400 }}
+                                            gap='8px'
+                                            textTransform='none'
+                                        >
+                                            <SpriteIcon
+                                                boxSize='16px'
+                                                viewBox='16px 16px'
+                                                spritePath='/sprite.svg'
+                                                spriteId={breadcrumbsObj[badge]}
+                                            />
+                                            {breadcrumbsObj[badge]}
+                                        </Badge>
+                                    </WrapItem>
                                 ))}
-                            </Box>
+                            </Wrap>
                             <Reactions
                                 likesCount={recipe.likes}
                                 bookmarksCount={recipe.bookmarks}
@@ -126,35 +143,56 @@ export const RecipePage = () => {
                             flexDirection='column'
                             alignItems='left'
                             width='100%'
-                            paddingTop='32px'
+                            height={{ sm: '344px' }}
+                            // paddingTop='32px'
                         >
                             <Heading
                                 fontWeight={700}
-                                fontSize='48px'
+                                fontSize={{ md: '24px', lg: '48px' }}
                                 lineHeight={1}
                                 paddingTop='32px'
-                                paddingBottom='24px'
+                                paddingBottom={{ sm: '16px', lg: '24px' }}
                                 width='437px'
-                                isTruncated
+                                sx={{
+                                    display: '-webkit-box',
+                                    WebkitLineClamp: 3,
+                                    WebkitBoxOrient: 'vertical',
+                                    overflow: 'hidden',
+                                    textOverflow: 'ellipsis',
+                                }}
                             >
                                 {recipe.title}
                             </Heading>
-                            <Text width='528px' fontWeight={400} fontSize='14px' lineHeight={1.4}>
+                            <Text
+                                width={{ md: '100%', lg: '528px' }}
+                                fontWeight={400}
+                                fontSize='14px'
+                                lineHeight={1.4}
+                                sx={{
+                                    display: '-webkit-box',
+                                    WebkitLineClamp: { sm: 4, md: 2, lg: 4 },
+                                    WebkitBoxOrient: 'vertical',
+                                    overflow: 'hidden',
+                                    textOverflow: 'ellipsis',
+                                }}
+                            >
                                 {recipe.description}
                             </Text>
                         </Box>
                         <Flex
-                            width='783px'
-                            height='48px'
+                            width={{ lg: '503px', xl: '783px' }}
+                            height={{ sm: '60px', md: '48px' }}
                             justifyContent='space-between'
-                            position='absolute'
+                            direction={{ sm: 'column', md: 'row' }}
+                            position={{ sm: 'absolute', md: 'unset' }}
                             bottom={0}
                         >
                             <Box
                                 display='flex'
                                 flexDirection='column'
                                 alignItems='center'
-                                justifyContent='flex-end'
+                                justifyContent={{ sm: 'flex-start', md: 'flex-end' }}
+                                // width='100%'
                             >
                                 <Badge
                                     width='104px'
@@ -165,6 +203,8 @@ export const RecipePage = () => {
                                     display='flex'
                                     alignItems='center'
                                     gap='8px'
+                                    position={{ sm: 'absolute', md: 'unset' }}
+                                    left={0}
                                     fontSize={{ sm: '14px' }}
                                     fontWeight={{ sm: 400 }}
                                     textTransform='none'
@@ -178,16 +218,21 @@ export const RecipePage = () => {
                                     {recipe.time}
                                 </Badge>
                             </Box>
-                            <Box display='flex' gap='16px' alignItems='center'>
+                            <Box
+                                paddingTop={{ sm: '12px' }}
+                                display='flex'
+                                gap='16px'
+                                alignItems='flex-end'
+                            >
                                 <Button
-                                    width='219px'
-                                    height='48px'
+                                    width={{ sm: '132px', lg: '160px', xl: '219px' }}
+                                    height={{ sm: '24px', lg: '32px', xl: '48px' }}
                                     borderRadius='6px'
                                     padding='0 24px'
                                     variant='outlined'
                                     border='1px solid rgba(0, 0, 0, 0.48)'
                                     gap='8px'
-                                    fontSize={{ sm: '18px' }}
+                                    fontSize={{ sm: '12px', lg: '14px', xl: '18px' }}
                                     fontWeight={{ sm: 600 }}
                                 >
                                     <SpriteIcon
@@ -199,14 +244,14 @@ export const RecipePage = () => {
                                     Оценить рецепт
                                 </Button>
                                 <Button
-                                    width='273px'
-                                    height='48px'
+                                    width={{ sm: '168px', lg: '202px', xl: '273px' }}
+                                    height={{ sm: '24px', lg: '32px', xl: '48px' }}
                                     borderRadius='6px'
                                     padding='0 24px'
                                     variant='contained'
                                     gap='8px'
                                     bgColor='lime.400'
-                                    fontSize={{ sm: '18px' }}
+                                    fontSize={{ sm: '12px', lg: '14px', xl: '18px' }}
                                     fontWeight={{ sm: 600 }}
                                 >
                                     <SpriteIcon
@@ -220,10 +265,10 @@ export const RecipePage = () => {
                             </Box>
                         </Flex>
                     </Flex>
-                </HStack>
+                </Flex>
                 <Flex
-                    width='668px'
-                    height='176px'
+                    width={{ md: '728px', lg: '578px', xl: '668px' }}
+                    height={{ sm: '324px', md: '176px' }}
                     paddingTop='40px'
                     position='relative'
                     display='flex'
@@ -241,27 +286,30 @@ export const RecipePage = () => {
                     >
                         * Калорийность на 1 порцию
                     </Text>
-                    <SimpleGrid spacing={6} columns={4}>
+                    <SimpleGrid spacing={{ sm: 3, lg: 6 }} columns={{ sm: 1, md: 4 }} width='100%'>
                         {Object.entries(recipe.nutritionValue).map(([key, value]) => {
                             const { title, unit } = values[key as keyof typeof values] || {
                                 title: key,
                                 unit: '',
                             };
-                            const totalNutrition = (value / recipe.portions) * portionCount;
+                            const totalNutrition = (
+                                (value / recipe.portions) *
+                                portionCount
+                            ).toFixed(0);
                             // const unitPerPortion = Number(unit) / recipe.portions;
 
                             return (
                                 <Card
                                     key={key}
-                                    width='149px'
-                                    height='136px'
+                                    width={{ sm: '328px', md: '173px', lg: '135px', xl: '149px' }}
+                                    height={{ sm: '64px', md: '136px' }}
                                     borderRadius='16px'
                                     padding='16px'
                                     variant='outlined'
                                     border='1px'
                                     borderColor='blackAlpha.200'
                                     display='flex'
-                                    flexDirection='column'
+                                    flexDirection={{ sm: 'row', md: 'column' }}
                                     alignItems='center'
                                 >
                                     <CardHeader padding={0}>
@@ -276,17 +324,18 @@ export const RecipePage = () => {
                                     </CardHeader>
                                     <CardBody padding={0}>
                                         <Text
-                                            fontSize={{ sm: '36px' }}
+                                            fontSize={{ sm: '24px', md: '36px' }}
                                             fontWeight={{ sm: 500 }}
                                             textTransform='none'
                                             color='lime.800'
+                                            textAlign='center'
                                         >
                                             {totalNutrition}
                                         </Text>
                                     </CardBody>
                                     <CardFooter padding={0}>
                                         <Text
-                                            fontSize={{ sm: '14px' }}
+                                            fontSize={{ sm: '12px', md: '14px' }}
                                             fontWeight={{ sm: 600 }}
                                             textTransform='uppercase'
                                             color='blackAlpha.900'
@@ -299,8 +348,8 @@ export const RecipePage = () => {
                         })}
                     </SimpleGrid>
                 </Flex>
-                <TableContainer>
-                    <Table variant='simple' width='668px'>
+                <TableContainer overflowX='hidden'>
+                    <Table variant='simple' width={{ md: '604px', lg: '578px', xl: '668px' }}>
                         <Thead>
                             <Tr>
                                 <Th
@@ -376,15 +425,16 @@ export const RecipePage = () => {
                 <VStack
                     flexDirection='column'
                     alignItems='flex-start'
-                    width='668px'
-                    paddingTop='40px'
+                    width={{ md: '604px', lg: '578px', xl: '668px' }}
+                    paddingTop={{ sm: 0, lg: '40px' }}
                     gap='20px'
                 >
-                    <Text fontWeight={500} fontSize='48px'>
+                    <Text fontWeight={500} fontSize={{ sm: '24px', lg: '48px' }}>
                         Шаги приготовления
                     </Text>
-                    {recipe.steps.map((step) => {
+                    {recipe.steps.map((step, index) => {
                         const isImageMissing = step.image;
+                        const last = index === recipe.steps.length - 1;
                         return isImageMissing ? (
                             <Card
                                 border='1px'
@@ -392,17 +442,17 @@ export const RecipePage = () => {
                                 variant='outlined'
                                 borderColor='blackAlpha.100'
                                 width='100%'
-                                height='244px'
+                                height={{ sm: '128px', lg: '244px' }}
                             >
                                 <Image
                                     objectFit='cover'
                                     width='100%'
-                                    maxWidth='346px'
+                                    maxWidth={{ sm: '158px', lg: '346px' }}
                                     src={step.image}
                                     alt={step.description}
                                 />
 
-                                <CardBody padding='20px 24px'>
+                                <CardBody padding={{ sm: '8px 8px 4px 8px', md: '20px 24px' }}>
                                     <Badge
                                         marginBottom='16px'
                                         display='flex'
@@ -412,7 +462,7 @@ export const RecipePage = () => {
                                         fontWeight={400}
                                         width='fit-content'
                                         height='24px'
-                                        bgColor='blackAlpha.100'
+                                        bgColor={last ? 'lime.50' : 'blackAlpha.100'}
                                         padding='2px 8px'
                                         borderRadius='4px'
                                     >
@@ -455,11 +505,11 @@ export const RecipePage = () => {
                 </VStack>
                 <Card
                     borderRadius='8px'
-                    padding='24px'
+                    padding={{ sm: '12px', md: '24px' }}
                     height='144px'
                     variant='filled'
                     bgColor='lime.300'
-                    width='668px'
+                    width={{ sm: '328px', md: '604px', lg: '578px', xl: '668px' }}
                 >
                     <CardBody
                         display='flex'
@@ -467,20 +517,25 @@ export const RecipePage = () => {
                         flexDirection='row'
                         gap='16px'
                         padding={0}
+                        position={{ sm: 'relative' }}
                     >
                         <Avatar width='96px' height='96px' src={sergey} />
                         <VStack height='96px' width='508px'>
                             <Box
                                 width='100%'
-                                position='relative'
+                                position={{ md: 'relative' }}
                                 display='flex'
                                 flexDirection='column'
                                 alignItems='flex-start'
                                 justifyContent='center'
-                                gap='4px'
+                                gap={{ sm: 0, md: '4px' }}
                                 height='56px'
                             >
-                                <Text fontWeight={700} fontSize='24px' color='blackAlpha.900'>
+                                <Text
+                                    fontWeight={{ sm: 600, md: 700 }}
+                                    fontSize={{ sm: '18px', md: '24px' }}
+                                    color='blackAlpha.900'
+                                >
                                     Сергей Разумов
                                 </Text>
                                 <Text fontWeight={400} fontSize='14px' color='blackAlpha.600'>
@@ -488,7 +543,7 @@ export const RecipePage = () => {
                                 </Text>
                                 <Text
                                     fontWeight={400}
-                                    fontSize='14px'
+                                    fontSize={{ sm: '12px', md: '14px' }}
                                     color='black'
                                     position='absolute'
                                     top={0}
